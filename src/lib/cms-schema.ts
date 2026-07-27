@@ -985,6 +985,67 @@ export const SVC_GEO_DEFAULTS = {
   closing: "Your business shows up when AI answers your customers' questions — recommended by name, before they ever visit a website. In a market where most competitors haven't started, that's a significant and compounding advantage.",
 };
 
+export const SVC_SEO_DEFAULTS = {
+  num: "07", accent: "#06b6d4",
+  badge: "Service 07 — Search Engine Optimisation",
+  headline: "Most SEO agencies sell you traffic. We build the rankings that actually bring in revenue.",
+  body: "Plenty of businesses across the UAE and India are paying for SEO and getting monthly reports full of numbers that don't matter — impressions, keyword counts, traffic that never converts. Real SEO is quieter and harder: fixing what's technically broken, earning rankings for the searches your buyers actually make, and building authority that competitors can't buy overnight. That's the work we do.",
+  specialisms: ["Technical SEO", "Local SEO", "Keyword Research", "On-Page & Content", "Link Building", "Core Web Vitals"],
+  primaryCtaLabel: "Get a free SEO audit", primaryCtaHref: "/audit",
+  secondaryCtaLabel: "Book a 30-min call →", secondaryCtaHref: "/book",
+  heroNote: "We run SEO and GEO together — so you're visible on Google and in the AI tools your customers are starting to search with.",
+  ...EMPTY_COMPARISON,
+  outcomes: [
+    { value: "3.4x", label: "Average growth in organic traffic" },
+    { value: "Top 3", label: "Rankings for priority commercial keywords" },
+    { value: "−52%", label: "Reliance on paid ads for leads" },
+  ],
+  audienceTitle: "Built for businesses that should be ranking — but aren't.",
+  audienceIntro: "If any of these sound familiar, this is usually where the real problem is hiding.",
+  audience: [
+    { title: "Retail & e-commerce", desc: "Thousands of products, but only a handful of pages ranking — most of the catalogue is invisible in search." },
+    { title: "Hospitality & F&B", desc: "Busy in person, but competitors show up first when someone searches your category in your city." },
+    { title: "Healthcare & wellness", desc: "Patients search before they book — and right now they're finding the clinic down the road instead of you." },
+    { title: "Real estate", desc: "High-intent buyers searching for areas, projects, and agents — and your listings buried on page three." },
+    { title: "B2B & professional services", desc: "Long buying cycles that start with a Google search you're not part of, so the shortlist forms without you." },
+  ],
+  includedTitle: "Everything that moves rankings — done properly, not just checked off a list.",
+  includedIntro: "SEO isn't one task. It's technical health, the right content, and earned authority — working together over time.",
+  subServices: [
+    { title: "Technical SEO", desc: "Search engines can't rank what they can't crawl, understand, or load quickly. We fix the foundations first — the issues quietly capping everything else you do.", points: ["Full technical audit & crawl analysis", "Site architecture & internal linking", "Indexing, canonicals & duplicate content", "Core Web Vitals & page speed fixes"] },
+    { title: "Keyword & Search Intent Research", desc: "We target the searches that lead to revenue — not the highest-volume terms that look good in a report but never convert. Every keyword is mapped to intent and to a page.", points: ["Commercial-intent keyword mapping", "UAE & India market research", "Competitor gap analysis", "Search intent & funnel alignment"] },
+    { title: "On-Page & Content", desc: "Rankings follow content that genuinely answers the search better than the pages above you. We create and optimise pages built to rank and to convert the visitor once they land.", points: ["On-page optimisation & metadata", "Content strategy & briefs", "New page & landing page creation", "Existing content refresh & consolidation"] },
+    { title: "Local SEO", desc: "For businesses that serve a city or region, local search is where the highest-intent customers are. We make sure you own the map pack and local results in your area.", points: ["Google Business Profile optimisation", "Local citations & NAP consistency", "Review generation & management", "Location & service-area pages"] },
+    { title: "Link Building & Authority", desc: "Google still weighs who vouches for you. We earn relevant, credible links the right way — no spam, no schemes that get you penalised six months later.", points: ["Digital PR & editorial links", "Directory & citation building", "Competitor backlink analysis", "Ongoing authority monitoring"] },
+    { title: "Reporting & Strategy", desc: "You'll always know what's ranking, what's driving traffic and leads, and what we're doing next — reported against revenue, not vanity metrics.", points: ["Live ranking & traffic dashboard", "Monthly performance review", "Conversion & lead tracking", "Rolling strategy & next-step priorities"] },
+  ],
+  approachTitle: "From audit to ranking — here's how we get there.",
+  approach: [
+    { title: "Audit — find out what's actually holding you back", desc: "We run a full technical, content, and authority audit to find the specific issues capping your rankings. Most sites have a handful of high-impact problems nobody's addressed — we find them before spending a rupee or dirham on new work." },
+    { title: "Strategy — a plan built around commercial searches, not volume", desc: "We prioritise the keywords and pages that will move revenue fastest for your business and market, and lay out a clear roadmap. You approve it before anything starts — no black-box work." },
+    { title: "Foundation — fix the technical issues first", desc: "We resolve the crawl, speed, indexing, and structure problems that quietly cap everything else. This is the unglamorous work most agencies skip, and it's usually where the fastest wins are." },
+    { title: "Content & authority — earn the rankings", desc: "We create and optimise the pages that deserve to rank, and build the credible links and local signals that tell Google you're a trustworthy answer. This is where compounding growth starts." },
+    { title: "Track & improve — report on what matters", desc: "We track rankings, traffic, and leads monthly, double down on what's working, and adjust what isn't. SEO compounds — the gains you build now get harder for competitors to overtake every month." },
+  ],
+  whyTitle: "Why businesses trust us with their SEO.",
+  whyCards: [
+    { title: "Revenue, not vanity metrics", desc: "We report on rankings, leads, and revenue — not impressions and keyword counts that look impressive and mean nothing. If it doesn't move the business, we don't celebrate it." },
+    { title: "Technical depth most agencies skip", desc: "A lot of SEO stalls because the technical foundation is broken and nobody looks. We start there — the audits, fixes, and Core Web Vitals work that quietly unlock everything else." },
+    { title: "SEO and GEO together", desc: "Search is splitting between Google and AI tools like ChatGPT and Perplexity. We run both, so your visibility compounds across traditional and AI search instead of you paying two vendors for half a strategy." },
+    { title: "White-hat, built to last", desc: "No bought links, no schemes, no shortcuts that trigger a penalty later. We build authority the way that survives algorithm updates — because we've seen what the shortcuts cost." },
+  ],
+  faqIntro: "The questions we get asked most before starting an SEO engagement.",
+  faqs: [
+    { q: "How long does SEO take to show results?", a: "It depends on your starting point and how competitive your market is, but a realistic timeline is 3 to 6 months for meaningful movement, with technical fixes often showing faster. Anyone promising page-one rankings in a few weeks is either misleading you or using tactics that will get you penalised. SEO compounds — the work builds on itself over time." },
+    { q: "What's the difference between SEO and GEO?", a: "SEO gets you found on traditional search engines like Google. GEO (Generative Engine Optimisation) gets your business surfaced and recommended inside AI tools like ChatGPT, Perplexity, and Gemini. They share foundations — good content, structure, authority — but each has its own techniques. We recommend running them together, since search is splitting across both." },
+    { q: "Do you guarantee first-page rankings?", a: "No — and be cautious of anyone who does. Nobody controls Google's algorithm, so guaranteeing a specific position is a red flag. What we do guarantee is the right work: technical fixes, the right content, and legitimate authority building — the things that reliably improve rankings over time. We report transparently on exactly what's moving." },
+    { q: "Can you do SEO for local businesses in the UAE or India?", a: "Yes — local SEO is one of our core strengths. When someone searches “dentist near me” or “best interior designer in Dubai”, local results and the Google map pack are where the highest-intent customers are. We optimise your Google Business Profile, local citations, reviews, and location pages to own those results in your area." },
+    { q: "We already rank okay — do we still need SEO?", a: "Ranking today doesn't mean ranking tomorrow — competitors invest, algorithms change, and technical issues creep in over time. And “okay” rankings often leave a lot of revenue on the table, especially on high-intent commercial searches. We usually start with an audit to show you specifically where the untapped opportunity is before you commit to anything." },
+    { q: "Will you work alongside our existing marketing team or agency?", a: "Yes — we do it regularly. We can run SEO as a standalone service that plugs into your existing setup, or coordinate with your team and other vendors on content and technical work. If you'd rather consolidate SEO, paid, and content under one connected strategy, we do that too — that's where the real compounding happens." },
+  ],
+  closing: "You show up first when your customers search for what you sell — with a site that's fast, technically sound, and built to convert the visit into a lead. That's not a spike in traffic; it's a durable advantage that gets harder to beat every month it runs.",
+};
+
 SECTIONS.push(
   {
     key: "services.overview", label: "Overview page", group: "Services",
@@ -1013,6 +1074,7 @@ SECTIONS.push(
   serviceSection("services.ai-training", "AI Training", SVC_AI_TRAINING_DEFAULTS),
   serviceSection("services.market-research", "Market Research", SVC_MARKET_RESEARCH_DEFAULTS),
   serviceSection("services.geo", "GEO", SVC_GEO_DEFAULTS),
+  serviceSection("services.seo", "SEO", SVC_SEO_DEFAULTS),
 );
 
 export function getSectionSchema(key: string): CmsSection | undefined {

@@ -10,6 +10,7 @@ const SERVICE_SLUGS = [
   "ai-training",
   "market-research",
   "geo",
+  "seo",
 ];
 
 const STATIC_ROUTES: { path: string; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"]; priority: number }[] = [
