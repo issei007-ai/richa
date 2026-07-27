@@ -86,8 +86,14 @@ interface WpPostNode {
   content: string;
   featuredImage?: { node?: { sourceUrl?: string } } | null;
   categories?: { nodes?: { name: string }[] } | null;
+  // Exposed by the "Add WPGraphQL SEO" plugin (bridges Yoast into GraphQL).
+  seo?: { title?: string; metaDesc?: string } | null;
 }
 
+// The `seo { ... }` block requires the "Add WPGraphQL SEO" plugin (which surfaces
+// Yoast's fields). With Yoast + that bridge installed, editors control the meta
+// title/description per post; when a field is left blank we fall back to the
+// post title / excerpt so nothing ends up empty.
 const POSTS_QUERY = `
   query Posts {
     posts(first: 100, where: { status: PUBLISH, orderby: { field: DATE, order: DESC } }) {
@@ -99,6 +105,7 @@ const POSTS_QUERY = `
         content
         featuredImage { node { sourceUrl } }
         categories(first: 1) { nodes { name } }
+        seo { title metaDesc }
       }
     }
   }
@@ -106,18 +113,20 @@ const POSTS_QUERY = `
 
 function mapPost(n: WpPostNode): BlogPost {
   const cat = n.categories?.nodes?.[0]?.name ?? "Article";
+  const title = stripHtml(n.title || "");
   const excerpt = stripHtml(n.excerpt || "");
   return {
     slug: n.slug,
     image: n.featuredImage?.node?.sourceUrl || undefined,
     cat,
-    title: stripHtml(n.title || ""),
+    title,
     excerpt,
     date: formatDate(n.date),
     read: readingTime(n.content || ""),
     accent: CATEGORY_ACCENTS[cat] ?? DEFAULT_ACCENT,
-    metaTitle: stripHtml(n.title || ""),
-    metaDescription: excerpt,
+    // Prefer Yoast's values; fall back to the title / excerpt when blank.
+    metaTitle: n.seo?.title?.trim() || title,
+    metaDescription: n.seo?.metaDesc?.trim() || excerpt,
     body: n.content || "",
   };
 }
