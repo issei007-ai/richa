@@ -3,9 +3,9 @@ import Footer from "@/components/layout/Footer";
 import PageHero from "@/components/sections/PageHero";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import LeadForm from "@/components/ui/LeadForm";
-import type { BlogPost } from "@/lib/blog";
 import { getSection } from "@/lib/cms";
-import { BLOG_PAGE_DEFAULTS, BLOG_POSTS_DEFAULTS } from "@/lib/cms-schema";
+import { getBlogPosts } from "@/lib/content";
+import { BLOG_PAGE_DEFAULTS } from "@/lib/cms-schema";
 
 export const metadata = {
   title: "Blog — Unexus AI",
@@ -14,7 +14,7 @@ export const metadata = {
 
 export default async function BlogPage() {
   const page = await getSection("blog.page", BLOG_PAGE_DEFAULTS);
-  const posts = (await getSection("blog.posts", BLOG_POSTS_DEFAULTS)).items as BlogPost[];
+  const posts = await getBlogPosts();
   const featured = posts[0];
   const rest = posts.slice(1);
 
