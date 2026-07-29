@@ -4,8 +4,7 @@ import ContactCTA from "@/components/sections/ContactCTA";
 import PageHero from "@/components/sections/PageHero";
 import CaseStudiesGrid from "@/components/sections/CaseStudiesGrid";
 import { getSection } from "@/lib/cms";
-import { getCaseStudies } from "@/lib/content";
-import { CASESTUDIES_PAGE_DEFAULTS } from "@/lib/cms-schema";
+import { CASESTUDIES_PAGE_DEFAULTS, CASESTUDIES_CASES_DEFAULTS } from "@/lib/cms-schema";
 
 export const metadata = {
   title: "Case Studies — Unexus AI",
@@ -14,10 +13,10 @@ export const metadata = {
 
 export default async function CaseStudiesPage() {
   const page = await getSection("casestudies.page", CASESTUDIES_PAGE_DEFAULTS);
-  const items = await getCaseStudies();
+  const raw = await getSection("casestudies.cases", CASESTUDIES_CASES_DEFAULTS);
 
   // Normalise metrics from "value | label" lines into { value, label }.
-  const cases = items.map((c) => ({
+  const cases = raw.items.map((c) => ({
     category: c.category,
     flag: c.flag,
     headline: c.headline,

@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
-import { getBlogPosts } from "@/lib/content";
+import { getSection } from "@/lib/cms";
+import { BLOG_POSTS_DEFAULTS } from "@/lib/cms-schema";
+import type { BlogPost } from "@/lib/blog";
 
 const SITE_URL = "https://www.unexusai.com";
 
@@ -46,10 +48,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.85,
   }));
 
-  // Blog posts from the shared content source (WordPress when configured, else
-  // the Neon CMS / defaults) so new posts show up here automatically wherever
-  // they're authored.
-  const posts = await getBlogPosts();
+  // Blog posts come from the CMS (falling back to the hardcoded defaults) so
+  // new posts added via /admin/content show up here automatically.
+  const posts = ((await getSection("blog.posts", BLOG_POSTS_DEFAULTS)).items as BlogPost[]) ?? [];
   const blogEntries: MetadataRoute.Sitemap = posts
     .filter((p) => p.slug)
     .map((p) => ({

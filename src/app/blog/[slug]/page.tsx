@@ -4,25 +4,32 @@ import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
 import PageHero from "@/components/sections/PageHero";
 import ContactCTA from "@/components/sections/ContactCTA";
-import { getBlogPosts } from "@/lib/content";
+import type { BlogPost } from "@/lib/blog";
+import { getSection } from "@/lib/cms";
+import { BLOG_POSTS_DEFAULTS } from "@/lib/cms-schema";
 
 export const dynamicParams = true;
 
+async function getPosts(): Promise<BlogPost[]> {
+  const data = await getSection("blog.posts", BLOG_POSTS_DEFAULTS);
+  return data.items as BlogPost[];
+}
+
 export async function generateStaticParams() {
-  const posts = await getBlogPosts();
+  const posts = await getPosts();
   return posts.map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const post = (await getBlogPosts()).find((p) => p.slug === slug);
+  const post = (await getPosts()).find((p) => p.slug === slug);
   if (!post) return { title: "Article — Unexus AI" };
   return { title: `${post.metaTitle} — Unexus AI`, description: post.metaDescription };
 }
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const post = (await getBlogPosts()).find((p) => p.slug === slug);
+  const post = (await getPosts()).find((p) => p.slug === slug);
   if (!post) notFound();
 
   return (
