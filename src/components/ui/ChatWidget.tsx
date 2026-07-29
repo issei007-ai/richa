@@ -30,6 +30,7 @@ const SERVICE_BY_SLUG: Record<string, string> = {
   "ai-training": "AI Training",
   "market-research": "Market Research",
   geo: "GEO",
+  seo: "SEO",
 };
 const SERVICE_NAMES = new Set(Object.values(SERVICE_BY_SLUG));
 

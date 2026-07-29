@@ -49,6 +49,13 @@ export const SERVICES: Service[] = [
     desc: "Get your business recommended by ChatGPT, Perplexity, and Gemini — not just found on Google.",
     href: "/services/geo",
   },
+  {
+    num: "07",
+    title: "SEO — Search Engine Optimisation",
+    cardTitle: "Search Engine Optimisation",
+    desc: "Technical SEO, content, and authority building that grows rankings and revenue — not vanity traffic.",
+    href: "/services/seo",
+  },
 ];
 
 export const STATS: Stat[] = [

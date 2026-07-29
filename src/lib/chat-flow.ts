@@ -31,7 +31,7 @@ export const CHAT_FLOW: ChatFlow = {
   // ── Services ───────────────────────────────────────────────────────────
   services: {
     bot: [
-      "Six services, all run by one team — so they connect instead of fighting each other.",
+      "Seven services, all run by one team — so they connect instead of fighting each other.",
       "Which one are you curious about?",
     ],
     options: [
@@ -40,6 +40,7 @@ export const CHAT_FLOW: ChatFlow = {
       { label: "AI Automation", next: "svc_auto" },
       { label: "AI Training", next: "svc_train" },
       { label: "Market Research", next: "svc_research" },
+      { label: "SEO", next: "svc_seo" },
       { label: "GEO", next: "geo" },
       { label: "← Back", next: START },
     ],
@@ -96,6 +97,18 @@ export const CHAT_FLOW: ChatFlow = {
     ],
     options: [
       { label: "Book a call about this", next: "ask_name", interest: "Market Research" },
+      { label: "← Other services", next: "services" },
+    ],
+  },
+
+  svc_seo: {
+    bot: [
+      "Technical fixes, the right content, and real authority building — so you rank for the searches that actually bring in revenue, not just traffic.",
+      "We run SEO and GEO together, so you're visible on Google and in AI search at the same time.",
+      "Want Richa to audit where your rankings are leaking?",
+    ],
+    options: [
+      { label: "Yes — get a free SEO audit", next: "ask_name", interest: "SEO" },
       { label: "← Other services", next: "services" },
     ],
   },

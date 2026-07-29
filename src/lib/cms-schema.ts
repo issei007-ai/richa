@@ -63,7 +63,7 @@ export const HOME_INDUSTRIES_DEFAULTS = {
 
 // ── Homepage: Services grid header ───────────────────────────────────────────
 export const HOME_SERVICES_DEFAULTS = {
-  heading: "Six services. One team. Built to work together.",
+  heading: "Seven services. One team. Built to work together.",
   intro: "Each service is powerful on its own. The real difference is when they connect — your SEO feeds your content, your website converts what your ads bring in, your AI tools make it all faster.",
 };
 
@@ -558,14 +558,14 @@ SECTIONS.push(
 // ── Services: overview page ──────────────────────────────────────────────────
 export const SERVICES_OVERVIEW_DEFAULTS = {
   heroEyebrow: "Services",
-  heroTitle: "Six services. Every growth lever your business needs.",
+  heroTitle: "Seven services. Every growth lever your business needs.",
   heroSubtitle: "Take one service or combine several — they're built to connect. The more they work together, the more your results compound. All delivered by one team in the UAE, serving businesses across the Middle East, India, and beyond.",
   heroPrimaryLabel: "Book a Strategy Call",
   heroPrimaryHref: "/book",
   heroSecondaryLabel: "Book a Free Consultation →",
   heroSecondaryHref: "#contact",
-  gridHeading: "Six services. Built to work together.",
-  gridIntro: "SEO without a website built for conversion is wasted. Paid ads without proper tracking is guesswork. AI tools without trained people are just subscriptions. We build all six services to connect — so your growth compounds instead of leaking through the gaps.",
+  gridHeading: "Seven services. Built to work together.",
+  gridIntro: "SEO without a website built for conversion is wasted. Paid ads without proper tracking is guesswork. AI tools without trained people are just subscriptions. We build all seven services to connect — so your growth compounds instead of leaking through the gaps.",
   whyBadge: "Why Unexus AI",
   whyTitle: "What working with us is actually like",
   whyCards: [

@@ -38,6 +38,11 @@ const SERVICE_ICONS: Record<string, React.ReactNode> = {
       <path d="M19 15l.6 1.8L21.5 17.5l-1.9.7L19 20l-.6-1.8L16.5 17.5l1.9-.7z" />
     </svg>
   ),
+  "SEO — Search Engine Optimisation": (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" /><polyline points="17 6 23 6 23 12" />
+    </svg>
+  ),
 };
 
 const SERVICE_IMG: Record<string, string> = {
@@ -54,8 +59,9 @@ const BENTO_CONFIG = [
   { colClass: "bento-narrow", minHeight: "220px" },
   { colClass: "bento-narrow", minHeight: "210px" },
   { colClass: "bento-wide",   minHeight: "210px" },
-  { colClass: "bento-half",   minHeight: "210px" },
-  { colClass: "bento-half",   minHeight: "210px" },
+  { colClass: "bento-third",  minHeight: "210px" },
+  { colClass: "bento-third",  minHeight: "210px" },
+  { colClass: "bento-third",  minHeight: "210px" },
 ];
 
 interface Props {
@@ -64,7 +70,7 @@ interface Props {
 }
 
 export default function ServicesGrid({
-  heading = "Six services. One team. Built to work together.",
+  heading = "Seven services. One team. Built to work together.",
   intro = "Each service is powerful on its own. The real difference is when they connect — your SEO feeds your content, your website converts what your ads bring in, your AI tools make it all faster.",
 }: Props = {}) {
   return (
