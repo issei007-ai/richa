@@ -77,6 +77,42 @@ export async function sectionMetadata(opts: {
   });
 }
 
+/** BlogPosting schema.org JSON-LD for an article page. */
+export function articleJsonLd(opts: {
+  title: string;
+  description: string;
+  url: string;
+  image?: string;
+}): Record<string, unknown> {
+  const ld: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: opts.title,
+    description: opts.description,
+    url: opts.url,
+    mainEntityOfPage: opts.url,
+    author: { "@type": "Organization", name: "Unexus AI" },
+    publisher: { "@type": "Organization", name: "Unexus AI" },
+  };
+  if (opts.image) ld.image = opts.image;
+  return ld;
+}
+
+/** FAQPage schema.org JSON-LD from a list of Q&A pairs. */
+export function faqJsonLd(faqs: { q: string; a: string }[]): Record<string, unknown> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs
+      .filter((f) => f.q && f.a)
+      .map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+  };
+}
+
 /** Organization schema.org JSON-LD, from the global SEO section. */
 export async function organizationJsonLd(): Promise<Record<string, unknown>> {
   const g = await getGlobalSeo();

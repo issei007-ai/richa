@@ -7,7 +7,7 @@ import ContactCTA from "@/components/sections/ContactCTA";
 import type { BlogPost } from "@/lib/blog";
 import { getSection } from "@/lib/cms";
 import { BLOG_POSTS_DEFAULTS } from "@/lib/cms-schema";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, articleJsonLd, SITE_URL } from "@/lib/seo";
 
 export const dynamicParams = true;
 
@@ -39,8 +39,16 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const post = (await getPosts()).find((p) => p.slug === slug);
   if (!post) notFound();
 
+  const articleLd = articleJsonLd({
+    title: post.title,
+    description: post.metaDescription || post.excerpt,
+    url: `${SITE_URL}/blog/${slug}`,
+    image: post.image,
+  });
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }} />
       <Nav />
       <main>
         <PageHero

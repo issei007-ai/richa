@@ -6,6 +6,7 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 import RevealText3D from "@/components/ui/RevealText3D";
 import FAQ from "@/components/ui/FAQ";
 import { PROCESS_STEPS, WHY_US } from "@/lib/constants";
+import { faqJsonLd } from "@/lib/seo";
 
 interface SubService {
   title: string;
@@ -92,6 +93,9 @@ export default function ServicePageTemplate({
 }: ServiceTemplateProps) {
   return (
     <>
+      {faqs.length > 0 && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(faqs)) }} />
+      )}
       <Nav />
       <main>
         <PageHero eyebrow={badge} title={headline} subtitle={body} pills={specialisms} accent={accent}>
