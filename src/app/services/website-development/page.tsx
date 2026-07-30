@@ -17,5 +17,5 @@ export function generateMetadata(): Promise<Metadata> {
 
 export default async function WebsiteDevelopmentPage() {
   const c = await getSection("services.website-development", SVC_WEBSITE_DEVELOPMENT_DEFAULTS);
-  return <ServicePageTemplate {...toServiceProps(c)} />;
+  return <ServicePageTemplate {...toServiceProps(c)} serviceName="Website Development" servicePath="/services/website-development" />;
 }

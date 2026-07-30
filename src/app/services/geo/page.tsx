@@ -17,5 +17,5 @@ export function generateMetadata(): Promise<Metadata> {
 
 export default async function GEOPage() {
   const c = await getSection("services.geo", SVC_GEO_DEFAULTS);
-  return <ServicePageTemplate {...toServiceProps(c)} />;
+  return <ServicePageTemplate {...toServiceProps(c)} serviceName="GEO — Generative Engine Optimisation" servicePath="/services/geo" />;
 }

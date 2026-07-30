@@ -7,7 +7,7 @@ import ContactCTA from "@/components/sections/ContactCTA";
 import type { BlogPost } from "@/lib/blog";
 import { getSection } from "@/lib/cms";
 import { BLOG_POSTS_DEFAULTS } from "@/lib/cms-schema";
-import { buildMetadata, articleJsonLd, SITE_URL } from "@/lib/seo";
+import { buildMetadata, articleJsonLd, breadcrumbJsonLd, SITE_URL } from "@/lib/seo";
 
 export const dynamicParams = true;
 
@@ -39,22 +39,31 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const post = (await getPosts()).find((p) => p.slug === slug);
   if (!post) notFound();
 
+  const author = post.author?.trim() || "Richa Gupta";
+  const url = `${SITE_URL}/blog/${slug}`;
   const articleLd = articleJsonLd({
     title: post.title,
     description: post.metaDescription || post.excerpt,
-    url: `${SITE_URL}/blog/${slug}`,
+    url,
     image: post.image,
+    authorName: author,
   });
+  const crumbsLd = breadcrumbJsonLd([
+    { name: "Home", url: SITE_URL },
+    { name: "Blog", url: `${SITE_URL}/blog` },
+    { name: post.title, url },
+  ]);
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(crumbsLd) }} />
       <Nav />
       <main>
         <PageHero
           eyebrow={post.cat}
           title={post.title}
-          subtitle={`${post.date} · ${post.read} read`}
+          subtitle={`By ${author} · ${post.date} · ${post.read} read`}
           accent={post.accent}
         />
 

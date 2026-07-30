@@ -17,5 +17,5 @@ export function generateMetadata(): Promise<Metadata> {
 
 export default async function MarketResearchPage() {
   const c = await getSection("services.market-research", SVC_MARKET_RESEARCH_DEFAULTS);
-  return <ServicePageTemplate {...toServiceProps(c)} />;
+  return <ServicePageTemplate {...toServiceProps(c)} serviceName="Market Research" servicePath="/services/market-research" />;
 }

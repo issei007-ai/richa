@@ -1,0 +1,20 @@
+# Unexus AI
+
+> AI-first digital marketing agency based in Dubai, UAE — GEO, SEO, paid media, website development, AI automation, and AI training for businesses across the UAE, India, and the wider Middle East. Founded by Richa Gupta; parent company SE Digicon has operated in India since 2015.
+
+## Services
+
+- [Digital Marketing](https://www.unexusai.com/services/digital-marketing): SEO, GEO, paid media, email, and conversion tracking run as one connected system, measured on revenue.
+- [SEO — Search Engine Optimisation](https://www.unexusai.com/services/seo): Technical SEO, local SEO, keyword and content strategy, and link building that grows rankings and revenue.
+- [GEO — Generative Engine Optimisation](https://www.unexusai.com/services/geo): Getting a business recommended by ChatGPT, Perplexity, Gemini, and Claude — not just found on Google.
+- [Website Development](https://www.unexusai.com/services/website-development): Fast, conversion-focused websites built in Next.js.
+- [AI Automation](https://www.unexusai.com/services/ai-automation): AI agents, WhatsApp automation, RAG pipelines, and voice systems.
+- [AI Training](https://www.unexusai.com/services/ai-training): Hands-on AI training built around a team's real workflows.
+- [Market Research](https://www.unexusai.com/services/market-research): Audience research, competitor analysis, positioning, and market-entry research for the UAE and India.
+
+## Company
+
+- [About](https://www.unexusai.com/about): Ten years of digital marketing, relaunched for the AI era.
+- [Case Studies](https://www.unexusai.com/case-studies): Real client results across retail, hospitality, real estate, healthcare, and startups.
+- [Blog](https://www.unexusai.com/blog): Practical, no-hype articles on growth, AI, GEO, and marketing.
+- [Contact](https://www.unexusai.com/contact): richa@unexusai.com · +971 50 125 7204 · Dubai, UAE (also serving India and the wider Middle East).

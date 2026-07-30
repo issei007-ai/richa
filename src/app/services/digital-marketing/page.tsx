@@ -17,5 +17,5 @@ export function generateMetadata(): Promise<Metadata> {
 
 export default async function DigitalMarketingPage() {
   const c = await getSection("services.digital-marketing", SVC_DIGITAL_MARKETING_DEFAULTS);
-  return <ServicePageTemplate {...toServiceProps(c)} />;
+  return <ServicePageTemplate {...toServiceProps(c)} serviceName="Digital Marketing" servicePath="/services/digital-marketing" />;
 }

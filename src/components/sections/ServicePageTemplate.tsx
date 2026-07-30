@@ -6,7 +6,7 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 import RevealText3D from "@/components/ui/RevealText3D";
 import FAQ from "@/components/ui/FAQ";
 import { PROCESS_STEPS, WHY_US } from "@/lib/constants";
-import { faqJsonLd } from "@/lib/seo";
+import { faqJsonLd, serviceJsonLd, breadcrumbJsonLd, SITE_URL } from "@/lib/seo";
 
 interface SubService {
   title: string;
@@ -63,6 +63,9 @@ export interface ServiceTemplateProps {
   faqs: { q: string; a: string }[];
   faqIntro?: string;
   closing?: string;
+  /** For Service + Breadcrumb structured data. */
+  serviceName?: string;
+  servicePath?: string;
 }
 
 export default function ServicePageTemplate({
@@ -90,11 +93,37 @@ export default function ServicePageTemplate({
   faqs,
   faqIntro,
   closing,
+  serviceName,
+  servicePath,
 }: ServiceTemplateProps) {
   return (
     <>
       {faqs.length > 0 && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(faqs)) }} />
+      )}
+      {serviceName && servicePath && (
+        <>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(
+                serviceJsonLd({ name: serviceName, description: body, url: `${SITE_URL}${servicePath}`, provider: "Unexus AI" }),
+              ),
+            }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(
+                breadcrumbJsonLd([
+                  { name: "Home", url: SITE_URL },
+                  { name: "Services", url: `${SITE_URL}/services` },
+                  { name: serviceName, url: `${SITE_URL}${servicePath}` },
+                ]),
+              ),
+            }}
+          />
+        </>
       )}
       <Nav />
       <main>

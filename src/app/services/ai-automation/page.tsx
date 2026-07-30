@@ -17,5 +17,5 @@ export function generateMetadata(): Promise<Metadata> {
 
 export default async function AIAutomationPage() {
   const c = await getSection("services.ai-automation", SVC_AI_AUTOMATION_DEFAULTS);
-  return <ServicePageTemplate {...toServiceProps(c)} />;
+  return <ServicePageTemplate {...toServiceProps(c)} serviceName="AI Automation" servicePath="/services/ai-automation" />;
 }

@@ -83,6 +83,7 @@ export function articleJsonLd(opts: {
   description: string;
   url: string;
   image?: string;
+  authorName?: string;
 }): Record<string, unknown> {
   const ld: Record<string, unknown> = {
     "@context": "https://schema.org",
@@ -91,11 +92,42 @@ export function articleJsonLd(opts: {
     description: opts.description,
     url: opts.url,
     mainEntityOfPage: opts.url,
-    author: { "@type": "Organization", name: "Unexus AI" },
+    author: { "@type": "Person", name: opts.authorName || "Unexus AI" },
     publisher: { "@type": "Organization", name: "Unexus AI" },
   };
   if (opts.image) ld.image = opts.image;
   return ld;
+}
+
+/** Service schema.org JSON-LD for a service page. */
+export function serviceJsonLd(opts: {
+  name: string;
+  description: string;
+  url: string;
+  provider: string;
+}): Record<string, unknown> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: opts.name,
+    description: opts.description,
+    url: opts.url,
+    provider: { "@type": "Organization", name: opts.provider },
+  };
+}
+
+/** BreadcrumbList schema.org JSON-LD from an ordered list of {name, url}. */
+export function breadcrumbJsonLd(items: { name: string; url: string }[]): Record<string, unknown> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((it, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: it.name,
+      item: it.url,
+    })),
+  };
 }
 
 /** FAQPage schema.org JSON-LD from a list of Q&A pairs. */
@@ -113,17 +145,50 @@ export function faqJsonLd(faqs: { q: string; a: string }[]): Record<string, unkn
   };
 }
 
-/** Organization schema.org JSON-LD, from the global SEO section. */
+/**
+ * Organization schema.org JSON-LD, from the global SEO section. Typed as
+ * ProfessionalService (a LocalBusiness subtype) so AI/search engines get the
+ * full entity: what we do, where, who founded it, and how to reach us.
+ */
 export async function organizationJsonLd(): Promise<Record<string, unknown>> {
   const g = await getGlobalSeo();
   const sameAs = Array.isArray(g.socialLinks) ? g.socialLinks.filter(Boolean) : [];
-  const jsonLd: Record<string, unknown> = {
+  const areaServed = Array.isArray(g.areaServed) ? g.areaServed.filter(Boolean) : [];
+  const ld: Record<string, unknown> = {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": "ProfessionalService",
     name: g.organizationName || g.siteName || "Unexus AI",
     url: SITE_URL,
   };
-  if (g.organizationLogo) jsonLd.logo = g.organizationLogo;
-  if (sameAs.length) jsonLd.sameAs = sameAs;
-  return jsonLd;
+  if (g.organizationDescription) ld.description = g.organizationDescription;
+  if (g.organizationLogo) {
+    ld.logo = g.organizationLogo;
+    ld.image = g.organizationLogo;
+  }
+  if (g.organizationEmail) ld.email = g.organizationEmail;
+  if (g.organizationPhone) ld.telephone = g.organizationPhone;
+  if (g.organizationCity || g.organizationCountry) {
+    ld.address = {
+      "@type": "PostalAddress",
+      ...(g.organizationCity ? { addressLocality: g.organizationCity } : {}),
+      ...(g.organizationCountry ? { addressCountry: g.organizationCountry } : {}),
+    };
+  }
+  if (areaServed.length) ld.areaServed = areaServed;
+  if (g.founderName) ld.founder = { "@type": "Person", name: g.founderName };
+  if (sameAs.length) ld.sameAs = sameAs;
+  return ld;
+}
+
+/** WebSite schema.org JSON-LD — helps engines model the site as an entity. */
+export async function websiteJsonLd(): Promise<Record<string, unknown>> {
+  const g = await getGlobalSeo();
+  const name = g.siteName || "Unexus AI";
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name,
+    url: SITE_URL,
+    publisher: { "@type": "Organization", name: g.organizationName || name },
+  };
 }
