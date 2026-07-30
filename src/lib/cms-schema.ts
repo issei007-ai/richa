@@ -21,6 +21,23 @@ export type CmsSection = {
   defaults: Record<string, unknown>;
 };
 
+// ── SEO & Social (global defaults) ───────────────────────────────────────────
+// Drives the site-wide <title>/description fallbacks, Open Graph + Twitter card
+// defaults (so shared links show a preview), and the Organization schema.org
+// block. Per-page titles/descriptions still override these where set.
+export const SEO_GLOBAL_DEFAULTS = {
+  siteName: "Unexus AI",
+  defaultTitle: "Unexus AI — Digital Marketing, Web & AI",
+  defaultDescription:
+    "Digital marketing, AI automation, and fast websites — run by one team that actually talks to itself.",
+  ogImage: "",
+  ogImageAlt: "Unexus AI — Digital Marketing, Web & AI",
+  twitterHandle: "",
+  organizationName: "Unexus AI",
+  organizationLogo: "",
+  socialLinks: [] as string[],
+};
+
 // ── Homepage: Hero ───────────────────────────────────────────────────────────
 export const HOME_HERO_DEFAULTS = {
   badge: "AI-Powered Digital Marketing • Precision. Performance. Growth.",
@@ -37,6 +54,23 @@ export const HOME_HERO_DEFAULTS = {
 };
 
 export const SECTIONS: CmsSection[] = [
+  {
+    key: "seo.global",
+    label: "SEO & Social",
+    group: "SEO",
+    fields: [
+      { name: "siteName", label: "Site name", type: "text", help: "Used in social cards and appended to page titles." },
+      { name: "defaultTitle", label: "Default / homepage title", type: "text" },
+      { name: "defaultDescription", label: "Default meta description", type: "textarea", help: "Fallback description for any page that doesn't set its own." },
+      { name: "ogImage", label: "Default social share image", type: "image", help: "Shown when a link is shared (WhatsApp, LinkedIn, X). Best size 1200×630px." },
+      { name: "ogImageAlt", label: "Social image — alt text", type: "text" },
+      { name: "twitterHandle", label: "Twitter / X handle", type: "text", help: "Include the @, e.g. @unexusai. Leave blank if none." },
+      { name: "organizationName", label: "Organization name (schema.org)", type: "text" },
+      { name: "organizationLogo", label: "Organization logo (schema.org)", type: "image", help: "Square logo used in structured data for rich results." },
+      { name: "socialLinks", label: "Social profile URLs (one per line)", type: "list", help: "LinkedIn, Instagram, X, etc. Feeds the Organization schema 'sameAs'." },
+    ],
+    defaults: SEO_GLOBAL_DEFAULTS,
+  },
   {
     key: "home.hero",
     label: "Hero",

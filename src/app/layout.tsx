@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
+import { buildMetadata, organizationJsonLd } from "@/lib/seo";
 import Analytics from "@/components/ui/Analytics";
 import TagManager from "@/components/ui/TagManager";
 import Attribution from "@/components/ui/Attribution";
@@ -9,15 +10,18 @@ import CookieConsent from "@/components/ui/CookieConsent";
 import ScrollProgress from "@/components/ui/ScrollProgress";
 import FloatingWidgets from "@/components/ui/FloatingWidgets";
 
-export const metadata: Metadata = {
-  title: "Unexus AI — Digital Marketing, Web & AI",
-  description: "Digital marketing, AI automation, and fast websites — run by one team that actually talks to itself.",
-};
+export function generateMetadata(): Promise<Metadata> {
+  return buildMetadata();
+}
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const orgLd = await organizationJsonLd();
   return (
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
       <body>
+        {/* Organization structured data for rich results — driven by the SEO
+            section in /admin/content. */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgLd) }} />
         <ScrollProgress />
         {children}
         <FloatingWidgets />
