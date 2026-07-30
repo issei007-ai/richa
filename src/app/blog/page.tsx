@@ -6,11 +6,18 @@ import LeadForm from "@/components/ui/LeadForm";
 import type { BlogPost } from "@/lib/blog";
 import { getSection } from "@/lib/cms";
 import { BLOG_PAGE_DEFAULTS, BLOG_POSTS_DEFAULTS } from "@/lib/cms-schema";
+import type { Metadata } from "next";
+import { sectionMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Blog — Unexus AI",
-  description: "Practical, no-hype articles on growth, AI, GEO, and marketing — written because they're useful.",
-};
+export function generateMetadata(): Promise<Metadata> {
+  return sectionMetadata({
+    key: "blog.page",
+    defaults: BLOG_PAGE_DEFAULTS,
+    path: "/blog",
+    fallbackTitle: "Blog",
+    fallbackDescription: "Practical, no-hype articles on growth, AI, GEO, and marketing — written because they're useful.",
+  });
+}
 
 export default async function BlogPage() {
   const page = await getSection("blog.page", BLOG_PAGE_DEFAULTS);

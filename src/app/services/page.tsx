@@ -6,11 +6,18 @@ import ServicesGrid from "@/components/sections/ServicesGrid";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { getSection } from "@/lib/cms";
 import { SERVICES_OVERVIEW_DEFAULTS } from "@/lib/cms-schema";
+import type { Metadata } from "next";
+import { sectionMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Services — Unexus AI",
-  description: "Digital marketing, website development, AI automation, AI training and market research, run by one team.",
-};
+export function generateMetadata(): Promise<Metadata> {
+  return sectionMetadata({
+    key: "services.overview",
+    defaults: SERVICES_OVERVIEW_DEFAULTS,
+    path: "/services",
+    fallbackTitle: "Services",
+    fallbackDescription: "Digital marketing, SEO, GEO, website development, AI automation, AI training, and market research — seven services run by one connected team.",
+  });
+}
 
 export default async function ServicesPage() {
   const c = await getSection("services.overview", SERVICES_OVERVIEW_DEFAULTS);

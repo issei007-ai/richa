@@ -7,6 +7,7 @@ import ContactCTA from "@/components/sections/ContactCTA";
 import type { BlogPost } from "@/lib/blog";
 import { getSection } from "@/lib/cms";
 import { BLOG_POSTS_DEFAULTS } from "@/lib/cms-schema";
+import { buildMetadata } from "@/lib/seo";
 
 export const dynamicParams = true;
 
@@ -24,7 +25,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const post = (await getPosts()).find((p) => p.slug === slug);
   if (!post) return { title: "Article — Unexus AI" };
-  return { title: `${post.metaTitle} — Unexus AI`, description: post.metaDescription };
+  return buildMetadata({
+    title: post.metaTitle,
+    description: post.metaDescription,
+    path: `/blog/${slug}`,
+    image: post.image,
+    imageAlt: post.imageAlt || post.title,
+  });
 }
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {

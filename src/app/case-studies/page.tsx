@@ -5,11 +5,18 @@ import PageHero from "@/components/sections/PageHero";
 import CaseStudiesGrid from "@/components/sections/CaseStudiesGrid";
 import { getSection } from "@/lib/cms";
 import { CASESTUDIES_PAGE_DEFAULTS, CASESTUDIES_CASES_DEFAULTS } from "@/lib/cms-schema";
+import type { Metadata } from "next";
+import { sectionMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Case Studies — Unexus AI",
-  description: "Real problems, real work, real results — across retail, hospitality, real estate, healthcare, and startups in the UAE and India.",
-};
+export function generateMetadata(): Promise<Metadata> {
+  return sectionMetadata({
+    key: "casestudies.page",
+    defaults: CASESTUDIES_PAGE_DEFAULTS,
+    path: "/case-studies",
+    fallbackTitle: "Case Studies",
+    fallbackDescription: "Real problems, real work, real results — across retail, hospitality, real estate, healthcare, and startups in the UAE and India.",
+  });
+}
 
 export default async function CaseStudiesPage() {
   const page = await getSection("casestudies.page", CASESTUDIES_PAGE_DEFAULTS);

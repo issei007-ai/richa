@@ -15,11 +15,18 @@ import {
   ABOUT_TEAM_DEFAULTS,
   ABOUT_PARTNERS_DEFAULTS,
 } from "@/lib/cms-schema";
+import type { Metadata } from "next";
+import { sectionMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "About — Unexus AI",
-  description: "Ten years of digital marketing, relaunched for the AI era. The story of Unexus AI, an SE Digicon company, founded by Richa Gupta.",
-};
+export function generateMetadata(): Promise<Metadata> {
+  return sectionMetadata({
+    key: "about.hero",
+    defaults: ABOUT_HERO_DEFAULTS,
+    path: "/about",
+    fallbackTitle: "About",
+    fallbackDescription: "Ten years of digital marketing, relaunched for the AI era. The story of Unexus AI, an SE Digicon company, founded by Richa Gupta.",
+  });
+}
 
 export default async function AboutPage() {
   const [hero, stats, story, timeline, values, founder, team, partners] = await Promise.all([

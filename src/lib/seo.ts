@@ -56,6 +56,27 @@ export async function buildMetadata(page: PageSeo = {}): Promise<Metadata> {
   return metadata;
 }
 
+/**
+ * Metadata for a page backed by a CMS section — reads the section's optional
+ * metaTitle/metaDescription overrides, falling back to the page's built-in
+ * defaults, and runs them through buildMetadata (canonical + OG + Twitter).
+ */
+export async function sectionMetadata(opts: {
+  key: string;
+  defaults: Record<string, unknown>;
+  path: string;
+  fallbackTitle: string;
+  fallbackDescription: string;
+}): Promise<Metadata> {
+  const c = await getSection(opts.key, opts.defaults);
+  const s = (v: unknown) => (typeof v === "string" ? v.trim() : "");
+  return buildMetadata({
+    title: s(c.metaTitle) || opts.fallbackTitle,
+    description: s(c.metaDescription) || opts.fallbackDescription,
+    path: opts.path,
+  });
+}
+
 /** Organization schema.org JSON-LD, from the global SEO section. */
 export async function organizationJsonLd(): Promise<Record<string, unknown>> {
   const g = await getGlobalSeo();

@@ -38,6 +38,18 @@ export const SEO_GLOBAL_DEFAULTS = {
   socialLinks: [] as string[],
 };
 
+/**
+ * Reusable per-page SEO override fields (title + description). Append with
+ * `...seoMetaFields()` to any page's section; sectionMetadata() in lib/seo.ts
+ * reads them and falls back to the page's built-in defaults when blank.
+ */
+export function seoMetaFields(): CmsField[] {
+  return [
+    { name: "metaTitle", label: "SEO title (optional)", type: "text", help: "Overrides the browser-tab and search-result title. Leave blank for the page default. “ — Unexus AI” is added automatically." },
+    { name: "metaDescription", label: "Meta description (optional)", type: "textarea", help: "The snippet shown under the title in search results. Leave blank for the page default." },
+  ];
+}
+
 // ── Homepage: Hero ───────────────────────────────────────────────────────────
 export const HOME_HERO_DEFAULTS = {
   badge: "AI-Powered Digital Marketing • Precision. Performance. Growth.",
@@ -347,6 +359,7 @@ SECTIONS.push(
       { name: "title", label: "Title", type: "text" },
       { name: "subtitle", label: "Subtitle", type: "textarea" },
       { name: "note", label: "SE Digicon badge", type: "text" },
+      ...seoMetaFields(),
     ],
     defaults: ABOUT_HERO_DEFAULTS,
   },
@@ -541,6 +554,7 @@ SECTIONS.push(
       { name: "heroSubtitle", label: "Hero subtitle", type: "textarea" },
       { name: "newsletterTitle", label: "Newsletter title", type: "text" },
       { name: "newsletterSub", label: "Newsletter sub", type: "textarea" },
+      ...seoMetaFields(),
     ],
     defaults: BLOG_PAGE_DEFAULTS,
   },
@@ -572,6 +586,7 @@ SECTIONS.push(
       { name: "heroSubtitle", label: "Hero subtitle", type: "textarea" },
       { name: "ctaHeading", label: "Closing CTA heading", type: "text" },
       { name: "ctaBody", label: "Closing CTA body", type: "textarea" },
+      ...seoMetaFields(),
     ],
     defaults: CASESTUDIES_PAGE_DEFAULTS,
   },
@@ -665,6 +680,7 @@ function serviceDetailFields(): CmsField[] {
       { name: "a", label: "Answer", type: "textarea" },
     ] },
     { name: "closing", label: "Closing — \"What changes\" line", type: "textarea" },
+    ...seoMetaFields(),
   ];
 }
 
@@ -1101,6 +1117,7 @@ SECTIONS.push(
         { name: "title", label: "Title", type: "text" },
         { name: "desc", label: "Description", type: "textarea" },
       ] },
+      ...seoMetaFields(),
     ],
     defaults: SERVICES_OVERVIEW_DEFAULTS,
   },
