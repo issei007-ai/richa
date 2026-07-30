@@ -34,22 +34,39 @@ export async function buildMetadata(page: PageSeo = {}): Promise<Metadata> {
   const title = page.title ? `${page.title} — ${siteName}` : g.defaultTitle || siteName;
   const description = page.description || g.defaultDescription || "";
   const url = page.path ? `${SITE_URL}${page.path}` : SITE_URL;
-  const image = page.image || g.ogImage || "";
+  // Falls back to the code-generated default (app/opengraph-image.tsx) so every
+  // page has a share image, even before the CMS default is set. A per-page or
+  // CMS image takes precedence.
+  const image = page.image || g.ogImage || `${SITE_URL}/opengraph-image`;
   const imageAlt = page.imageAlt || g.ogImageAlt || siteName;
-  const images = image ? [{ url: image, alt: imageAlt }] : undefined;
+  // Only attach images when the page has its own; otherwise omit the key so
+  // Next's file-convention default (app/opengraph-image.tsx) fills it in.
+  // Passing `images: undefined` explicitly would suppress that default.
+  const openGraph: NonNullable<Metadata["openGraph"]> = {
+    type: "website",
+    siteName,
+    title,
+    description,
+    url,
+    locale: "en_US",
+  };
+  const twitter: NonNullable<Metadata["twitter"]> = {
+    card: "summary_large_image", // a branded default OG image always exists
+    title,
+    description,
+  };
+  if (image) {
+    openGraph.images = [{ url: image, alt: imageAlt }];
+    twitter.images = [image];
+  }
+  if (g.twitterHandle) twitter.site = g.twitterHandle;
 
   const metadata: Metadata = {
     metadataBase: new URL(SITE_URL),
     title,
     description,
-    openGraph: { type: "website", siteName, title, description, url, images },
-    twitter: {
-      card: image ? "summary_large_image" : "summary",
-      title,
-      description,
-      images: image ? [image] : undefined,
-      site: g.twitterHandle || undefined,
-    },
+    openGraph,
+    twitter,
   };
   // Only set a canonical when the page identifies its own path. Setting it in
   // the root layout (no path) makes every page that doesn't override it inherit
