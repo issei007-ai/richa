@@ -2,10 +2,16 @@ import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
 import PageHero from "@/components/sections/PageHero";
 
-export const metadata = {
-  title: "Cookie Policy — Unexus AI",
-  description: "How and why Unexus AI uses cookies and similar technologies.",
-};
+import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
+
+export function generateMetadata(): Promise<Metadata> {
+  return buildMetadata({
+    title: "Cookie Policy",
+    description: "How and why Unexus AI uses cookies and similar technologies.",
+    path: "/cookie-policy",
+  });
+}
 
 export default function CookiePolicyPage() {
   return (

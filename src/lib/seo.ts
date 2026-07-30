@@ -42,7 +42,6 @@ export async function buildMetadata(page: PageSeo = {}): Promise<Metadata> {
     metadataBase: new URL(SITE_URL),
     title,
     description,
-    alternates: { canonical: url },
     openGraph: { type: "website", siteName, title, description, url, images },
     twitter: {
       card: image ? "summary_large_image" : "summary",
@@ -52,6 +51,11 @@ export async function buildMetadata(page: PageSeo = {}): Promise<Metadata> {
       site: g.twitterHandle || undefined,
     },
   };
+  // Only set a canonical when the page identifies its own path. Setting it in
+  // the root layout (no path) makes every page that doesn't override it inherit
+  // the homepage URL as its canonical — which de-indexes those pages. Pages
+  // without a path self-canonicalize (Google defaults to the page's own URL).
+  if (page.path) metadata.alternates = { canonical: url };
   if (page.noindex) metadata.robots = { index: false, follow: false };
   return metadata;
 }

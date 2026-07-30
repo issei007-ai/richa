@@ -4,10 +4,16 @@ import PageHero from "@/components/sections/PageHero";
 import LeadForm from "@/components/ui/LeadForm";
 import PhoneField from "@/components/ui/PhoneField";
 
-export const metadata = {
-  title: "Free Growth Audit — Unexus AI",
-  description: "Get a free, no-obligation audit of your website, SEO, ads, and conversion funnel.",
-};
+import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
+
+export function generateMetadata(): Promise<Metadata> {
+  return buildMetadata({
+    title: "Free Growth Audit",
+    description: "Get a free, no-obligation audit of your website, SEO, ads, and conversion funnel.",
+    path: "/audit",
+  });
+}
 
 const CHALLENGES = [
   "Not enough traffic",

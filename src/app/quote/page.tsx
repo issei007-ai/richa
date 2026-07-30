@@ -5,10 +5,16 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 import LeadForm from "@/components/ui/LeadForm";
 import PhoneField from "@/components/ui/PhoneField";
 
-export const metadata = {
-  title: "Get a Quote — Unexus AI",
-  description: "Tell us what you need and we'll send a clear scope, timeline, and price within 48 hours.",
-};
+import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
+
+export function generateMetadata(): Promise<Metadata> {
+  return buildMetadata({
+    title: "Get a Quote",
+    description: "Tell us what you need and we'll send a clear scope, timeline, and price within 48 hours.",
+    path: "/quote",
+  });
+}
 
 const SERVICES = ["Digital Marketing", "Website Development", "AI Automation", "AI Training", "Market Research", "Multiple / not sure"];
 const BUDGETS = ["Under £2k / mo", "£2k–£5k / mo", "£5k–£10k / mo", "£10k+ / mo", "One-off project"];

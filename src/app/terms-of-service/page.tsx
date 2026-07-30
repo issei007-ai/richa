@@ -2,10 +2,16 @@ import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
 import PageHero from "@/components/sections/PageHero";
 
-export const metadata = {
-  title: "Terms of Service — Unexus AI",
-  description: "The terms that govern your use of the Unexus AI website and services.",
-};
+import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
+
+export function generateMetadata(): Promise<Metadata> {
+  return buildMetadata({
+    title: "Terms of Service",
+    description: "The terms that govern your use of the Unexus AI website and services.",
+    path: "/terms-of-service",
+  });
+}
 
 export default function TermsOfServicePage() {
   return (

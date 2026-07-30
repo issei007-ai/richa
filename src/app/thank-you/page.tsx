@@ -3,10 +3,17 @@ import Footer from "@/components/layout/Footer";
 import PageHero from "@/components/sections/PageHero";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
-export const metadata = {
-  title: "Thank you — Unexus AI",
-  description: "We've received your request and will be in touch within one business day.",
-};
+import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
+
+export function generateMetadata(): Promise<Metadata> {
+  return buildMetadata({
+    title: "Thank you",
+    description: "We've received your request and will be in touch within one business day.",
+    path: "/thank-you",
+    noindex: true,
+  });
+}
 
 const NEXT_STEPS = [
   { step: "01", title: "We review your submission", desc: "Every request is read by a real person, not a bot." },

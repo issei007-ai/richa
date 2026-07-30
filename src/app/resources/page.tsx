@@ -4,10 +4,16 @@ import PageHero from "@/components/sections/PageHero";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import LeadForm from "@/components/ui/LeadForm";
 
-export const metadata = {
-  title: "Resources — Unexus AI",
-  description: "Free tools, templates, and guides to help you grow — no email wall on most of them.",
-};
+import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
+
+export function generateMetadata(): Promise<Metadata> {
+  return buildMetadata({
+    title: "Resources",
+    description: "Free tools, templates, and guides to help you grow — no email wall on most of them.",
+    path: "/resources",
+  });
+}
 
 const RESOURCES = [
   { type: "Guide", title: "The 2026 AI Marketing Playbook", desc: "A 40-page guide to using AI across your marketing — the prompts and workflows we actually use, not theory.", accent: "#7c3aed" },

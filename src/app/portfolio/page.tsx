@@ -7,10 +7,16 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 import ClientLogo from "@/components/ui/ClientLogo";
 import { CLIENTS } from "@/lib/constants";
 
-export const metadata = {
-  title: "Portfolio — Unexus AI",
-  description: "Some of the brands and institutions we've worked with — from schools and D2C brands to enterprise tech.",
-};
+import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
+
+export function generateMetadata(): Promise<Metadata> {
+  return buildMetadata({
+    title: "Portfolio",
+    description: "Some of the brands and institutions we've worked with — from schools and D2C brands to enterprise tech.",
+    path: "/portfolio",
+  });
+}
 
 export default function PortfolioPage() {
   return (

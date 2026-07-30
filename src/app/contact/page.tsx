@@ -8,10 +8,16 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 import { getSection } from "@/lib/cms";
 import { CONTACT_HERO_DEFAULTS, CONTACT_INFO_DEFAULTS, CONTACT_BOOK_DEFAULTS, CONTACT_MESSAGE_DEFAULTS } from "@/lib/cms-schema";
 
-export const metadata = {
-  title: "Contact — Unexus AI",
-  description: "Talk to us before you decide anything. Book a free 30-minute call or send a message — you'll hear back from a real person within one business day.",
-};
+import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
+
+export function generateMetadata(): Promise<Metadata> {
+  return buildMetadata({
+    title: "Contact",
+    description: "Talk to us before you decide anything. Book a free 30-minute call or send a message — you'll hear back from a real person within one business day.",
+    path: "/contact",
+  });
+}
 
 const NEEDS = ["Digital Marketing", "Website Development", "AI Automation", "AI Training", "Market Research", "GEO", "Not sure yet"];
 

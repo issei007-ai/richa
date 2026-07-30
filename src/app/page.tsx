@@ -17,6 +17,12 @@ import type { Client } from "@/lib/constants";
 import ClientChip from "@/components/ui/ClientChip";
 import { getSection } from "@/lib/cms";
 import { HOME_HERO_DEFAULTS, HOME_SERVICES_DEFAULTS, HOME_CLIENTS_DEFAULTS } from "@/lib/cms-schema";
+import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
+
+export function generateMetadata(): Promise<Metadata> {
+  return buildMetadata({ path: "/" });
+}
 
 export default async function HomePage() {
   const hero = await getSection("home.hero", HOME_HERO_DEFAULTS);

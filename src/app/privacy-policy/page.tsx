@@ -2,10 +2,16 @@ import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
 import PageHero from "@/components/sections/PageHero";
 
-export const metadata = {
-  title: "Privacy Policy — Unexus AI",
-  description: "How Unexus AI collects, uses, and protects your personal data.",
-};
+import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
+
+export function generateMetadata(): Promise<Metadata> {
+  return buildMetadata({
+    title: "Privacy Policy",
+    description: "How Unexus AI collects, uses, and protects your personal data.",
+    path: "/privacy-policy",
+  });
+}
 
 export default function PrivacyPolicyPage() {
   return (

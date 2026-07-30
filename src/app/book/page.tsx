@@ -4,10 +4,16 @@ import PageHero from "@/components/sections/PageHero";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import BookingScheduler from "@/components/ui/BookingScheduler";
 
-export const metadata = {
-  title: "Book a Call — Unexus AI",
-  description: "Book a free 30-minute strategy call. No pitch, no pressure.",
-};
+import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
+
+export function generateMetadata(): Promise<Metadata> {
+  return buildMetadata({
+    title: "Book a Call",
+    description: "Book a free 30-minute strategy call. No pitch, no pressure.",
+    path: "/book",
+  });
+}
 
 const EXPECT = [
   "We look at where things actually stand — not what you think the problem is, but what the data says",
