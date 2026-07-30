@@ -130,7 +130,7 @@ export const TESTIMONIALS: Testimonial[] = [
   },
 ];
 
-export type Client = { name: string; logo?: string; short?: string; flag?: string };
+export type Client = { name: string; logo?: string; logoAlt?: string; short?: string; flag?: string };
 
 // `logo` points to a file in /public/clients. Clients without a usable logo
 // fall back to a styled monogram (handled by the ClientLogo component).

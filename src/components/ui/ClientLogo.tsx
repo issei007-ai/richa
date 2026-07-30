@@ -47,7 +47,7 @@ export default function ClientLogo({ client, index = 0, size = 80, shape = "roun
     >
       <Image
         src={client.logo}
-        alt={`${client.name} logo`}
+        alt={client.logoAlt || `${client.name} logo`}
         width={size}
         height={size}
         style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain", width: "auto", height: "auto" }}

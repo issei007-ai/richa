@@ -265,6 +265,7 @@ SECTIONS.push({
       { name: "name", label: "Name", type: "text" },
       { name: "short", label: "Short name (optional)", type: "text" },
       { name: "logo", label: "Logo", type: "image" },
+      { name: "logoAlt", label: "Logo — alt text (optional)", type: "text", help: "Falls back to “<name> logo” if left blank." },
       { name: "flag", label: "Flag (ISO code)", type: "text" },
     ] },
   ],
@@ -549,6 +550,7 @@ SECTIONS.push(
       { name: "items", label: "Articles", type: "items", itemLabel: "article", help: "Body accepts HTML (headings, lists, tables). Slug must be unique and URL-safe.", itemFields: [
         { name: "slug", label: "URL slug", type: "text" },
         { name: "image", label: "Cover image", type: "image" },
+        { name: "imageAlt", label: "Cover image — alt text", type: "text", help: "Describe the image for search engines and screen readers. Falls back to the article title if left blank." },
         { name: "cat", label: "Category", type: "text" },
         { name: "title", label: "Title", type: "text" },
         { name: "excerpt", label: "Excerpt", type: "textarea" },
