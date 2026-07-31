@@ -69,7 +69,25 @@ export default function RevealText3D({
   };
 
   return (
-    <span ref={ref} className={`r3d ${className}`} style={style} aria-label={text}>
+    <span ref={ref} className={`r3d ${className}`} style={style}>
+      {/* Real text for screen readers / AI agents. aria-label isn't valid on a
+          plain span, so the accessible copy lives here (visually hidden) while
+          the animated split is marked decorative. */}
+      <span
+        style={{
+          position: "absolute",
+          width: "1px",
+          height: "1px",
+          padding: 0,
+          margin: "-1px",
+          overflow: "hidden",
+          clipPath: "inset(50%)",
+          whiteSpace: "nowrap",
+          border: 0,
+        }}
+      >
+        {text}
+      </span>
       <span aria-hidden>
         {words.map((word, wi) => (
           <Fragment key={wi}>

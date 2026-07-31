@@ -149,8 +149,8 @@ export default async function ContactPage() {
                 </div>
                 <PhoneField />
                 <div>
-                  <label className="form-label">What do you need help with?</label>
-                  <select className="form-select" name="need" defaultValue="" required>
+                  <label className="form-label" htmlFor="contact-need">What do you need help with?</label>
+                  <select className="form-select" name="need" id="contact-need" defaultValue="" required>
                     <option value="" disabled>Select a service</option>
                     {NEEDS.map((opt) => <option key={opt}>{opt}</option>)}
                   </select>

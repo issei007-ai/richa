@@ -71,8 +71,8 @@ export default function ContactCTA({
                 <input className="form-input" name="company" type="text" placeholder="Your company" />
               </div>
               <div>
-                <label className="form-label">What do you need?</label>
-                <select className="form-select" name="need">
+                <label className="form-label" htmlFor="cta-need">What do you need?</label>
+                <select className="form-select" name="need" id="cta-need">
                   {NEEDS.map((opt) => <option key={opt}>{opt}</option>)}
                 </select>
               </div>
