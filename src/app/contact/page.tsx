@@ -135,17 +135,17 @@ export default async function ContactPage() {
               <LeadForm source="contact" submitLabel="Send message" note="We respond within one business day. No newsletters, no spam.">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="form-label">Name</label>
-                    <input className="form-input" name="name" type="text" placeholder="Your name" required />
+                    <label className="form-label" htmlFor="contact-name">Name</label>
+                    <input className="form-input" id="contact-name" name="name" type="text" placeholder="Your name" required />
                   </div>
                   <div>
-                    <label className="form-label">Company</label>
-                    <input className="form-input" name="company" type="text" placeholder="Your company" />
+                    <label className="form-label" htmlFor="contact-company">Company</label>
+                    <input className="form-input" id="contact-company" name="company" type="text" placeholder="Your company" />
                   </div>
                 </div>
                 <div>
-                  <label className="form-label">Email</label>
-                  <input className="form-input" name="email" type="email" placeholder="you@company.com" required />
+                  <label className="form-label" htmlFor="contact-email">Email</label>
+                  <input className="form-input" id="contact-email" name="email" type="email" placeholder="you@company.com" required />
                 </div>
                 <PhoneField />
                 <div>
@@ -156,8 +156,8 @@ export default async function ContactPage() {
                   </select>
                 </div>
                 <div>
-                  <label className="form-label">Tell us more</label>
-                  <textarea className="form-textarea" name="message" placeholder="What's the problem you're trying to solve?" />
+                  <label className="form-label" htmlFor="contact-message">Tell us more</label>
+                  <textarea className="form-textarea" id="contact-message" name="message" placeholder="What's the problem you're trying to solve?" />
                 </div>
               </LeadForm>
             </div>

@@ -57,18 +57,18 @@ export default function ContactCTA({
             <LeadForm source="contact-cta" submitLabel="Send message" note="We respond within one business day. No spam, ever.">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="form-label">Name</label>
-                  <input className="form-input" name="name" type="text" placeholder="Your name" required />
+                  <label className="form-label" htmlFor="cta-name">Name</label>
+                  <input className="form-input" id="cta-name" name="name" type="text" placeholder="Your name" required />
                 </div>
                 <div>
-                  <label className="form-label">Email</label>
-                  <input className="form-input" name="email" type="email" placeholder="you@company.com" required />
+                  <label className="form-label" htmlFor="cta-email">Email</label>
+                  <input className="form-input" id="cta-email" name="email" type="email" placeholder="you@company.com" required />
                 </div>
               </div>
               <PhoneField />
               <div>
-                <label className="form-label">Company</label>
-                <input className="form-input" name="company" type="text" placeholder="Your company" />
+                <label className="form-label" htmlFor="cta-company">Company</label>
+                <input className="form-input" id="cta-company" name="company" type="text" placeholder="Your company" />
               </div>
               <div>
                 <label className="form-label" htmlFor="cta-need">What do you need?</label>
@@ -77,8 +77,8 @@ export default function ContactCTA({
                 </select>
               </div>
               <div>
-                <label className="form-label">Tell us more</label>
-                <textarea className="form-textarea" name="message" placeholder="A bit about your business and what you're trying to achieve..." />
+                <label className="form-label" htmlFor="cta-message">Tell us more</label>
+                <textarea className="form-textarea" id="cta-message" name="message" placeholder="A bit about your business and what you're trying to achieve..." />
               </div>
             </LeadForm>
           </div>

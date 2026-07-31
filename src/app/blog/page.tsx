@@ -100,7 +100,7 @@ export default async function BlogPage() {
               <div className="mx-auto" style={{ maxWidth: "22rem" }}>
                 <LeadForm source="blog" type="newsletter" submitLabel="Subscribe" note="No spam. Unsubscribe anytime.">
                   <div>
-                    <input className="form-input" name="email" type="email" placeholder="you@company.com" required />
+                    <input className="form-input" name="email" type="email" aria-label="Email address" placeholder="you@company.com" required />
                   </div>
                 </LeadForm>
               </div>

@@ -64,7 +64,7 @@ export default function ResourcesPage() {
               <div className="mx-auto" style={{ maxWidth: "22rem" }}>
                 <LeadForm source="resources" type="newsletter" submitLabel="Send me the pack" note="No spam. Unsubscribe anytime.">
                   <div>
-                    <input className="form-input" name="email" type="email" placeholder="you@company.com" required />
+                    <input className="form-input" name="email" type="email" aria-label="Email address" placeholder="you@company.com" required />
                   </div>
                 </LeadForm>
               </div>

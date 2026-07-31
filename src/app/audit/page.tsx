@@ -41,21 +41,21 @@ export default function AuditPage() {
               <h2 className="text-h3 mb-6" style={{ fontFamily: "var(--font-display)" }}>Request your free audit</h2>
               <LeadForm source="audit" submitLabel="Request my free audit" note="We review every submission personally. You'll hear from us within 48 hours.">
                 <div>
-                  <label className="form-label">Name</label>
-                  <input className="form-input" name="name" type="text" placeholder="Your name" required />
+                  <label className="form-label" htmlFor="audit-name">Name</label>
+                  <input className="form-input" id="audit-name" name="name" type="text" placeholder="Your name" required />
                 </div>
                 <div>
-                  <label className="form-label">Email</label>
-                  <input className="form-input" name="email" type="email" placeholder="you@company.com" required />
+                  <label className="form-label" htmlFor="audit-email">Email</label>
+                  <input className="form-input" id="audit-email" name="email" type="email" placeholder="you@company.com" required />
                 </div>
                 <PhoneField />
                 <div>
-                  <label className="form-label">Website URL</label>
-                  <input className="form-input" name="website" type="url" placeholder="https://yoursite.com" />
+                  <label className="form-label" htmlFor="audit-website">Website URL</label>
+                  <input className="form-input" id="audit-website" name="website" type="url" placeholder="https://yoursite.com" />
                 </div>
                 <div>
-                  <label className="form-label">What&apos;s your biggest challenge?</label>
-                  <select className="form-select" name="challenge">
+                  <label className="form-label" htmlFor="audit-challenge">What&apos;s your biggest challenge?</label>
+                  <select className="form-select" id="audit-challenge" name="challenge">
                     {CHALLENGES.map((opt) => <option key={opt}>{opt}</option>)}
                   </select>
                 </div>

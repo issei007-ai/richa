@@ -24,7 +24,9 @@ export default function PhoneField({ required = true }: { required?: boolean }) 
 
   return (
     <div>
-      <label className="form-label">Phone number</label>
+      {/* Group heading, not a <label> — the two inputs below carry their own
+          aria-labels, so a <label> here would be an orphan with no control. */}
+      <span className="form-label" style={{ display: "block" }}>Phone number</span>
       <div className="flex gap-2">
         <input
           className="form-input"
