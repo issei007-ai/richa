@@ -1,0 +1,14 @@
+{
+  "name": "Unexus AI",
+  "short_name": "Unexus AI",
+  "description": "Digital marketing, AI automation, and fast websites — run by one team.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#05070f",
+  "theme_color": "#6366f1",
+  "icons": [
+    { "src": "/favicon.ico", "sizes": "32x32", "type": "image/x-icon" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

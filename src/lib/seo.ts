@@ -65,6 +65,7 @@ export async function buildMetadata(page: PageSeo = {}): Promise<Metadata> {
     metadataBase: new URL(SITE_URL),
     title,
     description,
+    manifest: "/site.webmanifest",
     openGraph,
     twitter,
   };
