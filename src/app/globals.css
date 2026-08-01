@@ -1516,19 +1516,6 @@ body::after {
 }
 .group:hover .svc-img { filter: brightness(1.05); transform: scale(1.06); }
 
-/* Service mascot cards — the full artwork shown on a white tile, uncropped. */
-.svc-mascot {
-  position: absolute;
-  inset: 0;
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  padding: 0.5rem;
-  transition: transform 0.7s var(--ease-spring);
-}
-.group:hover .svc-mascot { transform: scale(1.04); }
-
 /* ─── MOBILE TUNING ──────────────────────────────────────────────────────── */
 
 @media (max-width: 640px) {
