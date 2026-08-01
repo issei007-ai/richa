@@ -52,6 +52,7 @@ const SERVICE_IMG: Record<string, string> = {
   "AI Training": "/services/ai-training.png",
   "Market Research": "/services/market-research.png",
   "GEO — Generative Engine Optimization": "/services/geo.png",
+  "SEO — Search Engine Optimisation": "/services/seo.png",
 };
 
 const BENTO_CONFIG = [
