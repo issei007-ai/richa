@@ -1114,6 +1114,18 @@ export const SVC_SEO_DEFAULTS = {
   closing: "You show up first when your customers search for what you sell — with a site that's fast, technically sound, and built to convert the visit into a lead. That's not a spike in traffic; it's a durable advantage that gets harder to beat every month it runs.",
 };
 
+export const SERVICES_CARDS_DEFAULTS = {
+  items: [
+    { title: "Digital Marketing", desc: "SEO, paid ads, and email — run as one joined-up system, not three separate jobs." },
+    { title: "Website Development", desc: "Fast, conversion-focused websites built to turn visitors into leads — not just look good." },
+    { title: "AI Automation", desc: "We find the repetitive work eating your team's week and build AI that takes it off their plate — permanently." },
+    { title: "AI Training", desc: "Practical, hands-on sessions so your team actually uses AI tools — not just knows they exist." },
+    { title: "Market Research", desc: "Know exactly who you're talking to, what they want, and how to reach them — before you spend a penny on marketing." },
+    { title: "Generative Engine Optimisation", desc: "Get your business recommended by ChatGPT, Perplexity, and Gemini — not just found on Google." },
+    { title: "Search Engine Optimisation", desc: "Technical SEO, content, and authority building that grows rankings and revenue — not vanity traffic." },
+  ],
+};
+
 SECTIONS.push(
   {
     key: "services.overview", label: "Overview page", group: "Services",
@@ -1144,6 +1156,16 @@ SECTIONS.push(
   serviceSection("services.market-research", "Market Research", SVC_MARKET_RESEARCH_DEFAULTS),
   serviceSection("services.geo", "GEO", SVC_GEO_DEFAULTS),
   serviceSection("services.seo", "SEO", SVC_SEO_DEFAULTS),
+  {
+    key: "services.cards", label: "Service cards (name + info)", group: "Services",
+    fields: [
+      { name: "items", label: "Cards — in grid order", type: "items", itemLabel: "card", help: "Name + one-line description on each service card (homepage + /services). Keep order: Digital Marketing, Website Development, AI Automation, AI Training, Market Research, GEO, SEO.", itemFields: [
+        { name: "title", label: "Service name", type: "text" },
+        { name: "desc", label: "Description", type: "textarea" },
+      ] },
+    ],
+    defaults: SERVICES_CARDS_DEFAULTS,
+  },
 );
 
 export function getSectionSchema(key: string): CmsSection | undefined {

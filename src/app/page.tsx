@@ -16,7 +16,7 @@ import Preloader from "@/components/ui/Preloader";
 import type { Client } from "@/lib/constants";
 import ClientChip from "@/components/ui/ClientChip";
 import { getSection } from "@/lib/cms";
-import { HOME_HERO_DEFAULTS, HOME_SERVICES_DEFAULTS, HOME_CLIENTS_DEFAULTS } from "@/lib/cms-schema";
+import { HOME_HERO_DEFAULTS, HOME_SERVICES_DEFAULTS, HOME_CLIENTS_DEFAULTS, SERVICES_CARDS_DEFAULTS } from "@/lib/cms-schema";
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo";
 
@@ -28,6 +28,7 @@ export default async function HomePage() {
   const hero = await getSection("home.hero", HOME_HERO_DEFAULTS);
   const servicesHead = await getSection("home.services", HOME_SERVICES_DEFAULTS);
   const clients = ((await getSection("home.clients", HOME_CLIENTS_DEFAULTS)).items as Client[]);
+  const serviceCards = (await getSection("services.cards", SERVICES_CARDS_DEFAULTS)).items as { title: string; desc: string }[];
   return (
     <>
       <Preloader />
@@ -109,7 +110,7 @@ export default async function HomePage() {
 
         <IndustriesSection />
         <WhyRicha />
-        <ServicesGrid heading={servicesHead.heading} intro={servicesHead.intro} />
+        <ServicesGrid heading={servicesHead.heading} intro={servicesHead.intro} cards={serviceCards} />
         <ProcessSteps />
         <TestimonialsGrid />
         <ContactCTA />

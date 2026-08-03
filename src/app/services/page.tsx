@@ -5,7 +5,7 @@ import PageHero from "@/components/sections/PageHero";
 import ServicesGrid from "@/components/sections/ServicesGrid";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { getSection } from "@/lib/cms";
-import { SERVICES_OVERVIEW_DEFAULTS } from "@/lib/cms-schema";
+import { SERVICES_OVERVIEW_DEFAULTS, SERVICES_CARDS_DEFAULTS } from "@/lib/cms-schema";
 import type { Metadata } from "next";
 import { sectionMetadata } from "@/lib/seo";
 
@@ -22,6 +22,7 @@ export function generateMetadata(): Promise<Metadata> {
 export default async function ServicesPage() {
   const c = await getSection("services.overview", SERVICES_OVERVIEW_DEFAULTS);
   const whyCards = Array.isArray(c.whyCards) ? c.whyCards : [];
+  const serviceCards = (await getSection("services.cards", SERVICES_CARDS_DEFAULTS)).items as { title: string; desc: string }[];
 
   return (
     <>
@@ -36,7 +37,7 @@ export default async function ServicesPage() {
           <a href={c.heroSecondaryHref} className="btn btn-secondary btn-lg">{c.heroSecondaryLabel}</a>
         </PageHero>
 
-        <ServicesGrid heading={c.gridHeading} intro={c.gridIntro} />
+        <ServicesGrid heading={c.gridHeading} intro={c.gridIntro} cards={serviceCards} />
 
         {/* Why Unexus AI */}
         <section className="section section-alt">
