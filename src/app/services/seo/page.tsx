@@ -17,5 +17,15 @@ export function generateMetadata(): Promise<Metadata> {
 
 export default async function SEOPage() {
   const c = await getSection("services.seo", SVC_SEO_DEFAULTS);
-  return <ServicePageTemplate {...toServiceProps(c)} serviceName="SEO — Search Engine Optimisation" servicePath="/services/seo" />;
+ return (
+  <ServicePageTemplate
+    {...toServiceProps(c)}
+    primaryCta={{
+      label: "Get in Touch →",
+      href: "#contact",
+    }}
+    serviceName="SEO — Search Engine Optimisation"
+    servicePath="/services/seo"
+  />
+);
 }
