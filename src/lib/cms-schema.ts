@@ -773,8 +773,8 @@ export const SVC_DIGITAL_MARKETING_DEFAULTS = {
 };
 
 export const SVC_WEBSITE_DEVELOPMENT_DEFAULTS = {
-  num: "02", accent: "#06b6d4",
-  badge: "Service 02 — Website Development",
+  num: "05", accent: "#06b6d4",
+  badge: "Service 05 — Website Development",
   headline: "Your website is live. But is it actually working?",
   body: "Most businesses in the UAE have a website that looks decent but converts poorly. Visitors land, scroll, and leave — without filling a form, making a booking, or picking up the phone. We build websites in Next.js that are designed around one thing: turning the traffic you already have into customers.",
   specialisms: ["UI/UX Design", "Next.js Development", "CRO", "SEO-Ready", "CMS Integration", "Performance"],
@@ -830,8 +830,8 @@ export const SVC_WEBSITE_DEVELOPMENT_DEFAULTS = {
 };
 
 export const SVC_AI_AUTOMATION_DEFAULTS = {
-  num: "03", accent: "#7c3aed",
-  badge: "Service 03 — AI Automation",
+  num: "06", accent: "#7c3aed",
+  badge: "Service 06 — AI Automation",
   headline: "Most businesses aren't short on tasks — they're short on time, because too many of those tasks are still manual.",
   body: "As an AI automation company, UnexusAI builds systems that take repetitive, rule-based work off your team's plate, so people spend time on decisions that actually need a human.",
   specialisms: ["AI Workflow Automation", "Business Process Automation", "AI Chatbot Development", "AI Voice Agents", "WhatsApp Automation", "CRM and ERP Automation"],
@@ -924,8 +924,8 @@ export const SVC_AI_AUTOMATION_DEFAULTS = {
 };
 
 export const SVC_AI_TRAINING_DEFAULTS = {
-  num: "04", accent: "#f59e0b",
-  badge: "Service 04 — AI Training",
+  num: "07", accent: "#f59e0b",
+  badge: "Service 07 — AI Training",
   headline: "Buying AI tools is easy. Getting a team to actually use them well is the hard part.",
   body: "As a dedicated AI training company, UnexusAI runs practical, hands-on AI training services that teach real teams how to use AI in their day-to-day work — not generic lectures about what AI is.",
   specialisms: ["Generative AI Training", "Prompt Engineering Workshops", "AI for Business Teams", "AI for Marketing and Sales", "Custom Corporate AI Training", "One-on-One AI Coaching"],
@@ -1017,8 +1017,8 @@ export const SVC_AI_TRAINING_DEFAULTS = {
 };
 
 export const SVC_MARKET_RESEARCH_DEFAULTS = {
-  num: "05", accent: "#10b981",
-  badge: "Service 05 — Market Research",
+  num: "08", accent: "#10b981",
+  badge: "Service 08 — Market Research",
   headline: "Business decisions made without data are just guesses with confidence.",
   body: "As a dedicated market research company, UnexusAI provides market research services that replace assumptions with evidence — so pricing, positioning, and expansion decisions are backed by what your market is actually doing, not what you hope it's doing.",
   specialisms: ["Market Opportunity Analysis", "Competitor Analysis", "Customer and Audience Research", "Market Sizing", "Pricing Research", "Product and Service Validation"],
@@ -1111,8 +1111,8 @@ export const SVC_MARKET_RESEARCH_DEFAULTS = {
 };
 
 export const SVC_GEO_DEFAULTS = {
-  num: "06", accent: "#6366f1",
-  badge: "Service 06 — Generative Engine Optimisation",
+  num: "04", accent: "#6366f1",
+  badge: "Service 04 — Generative Engine Optimisation",
   headline: "Search is splitting in two.",
   body: "People still type queries into Google — but increasingly, they're also asking ChatGPT, Google AI Overviews, Gemini, Perplexity, and Claude directly, and getting an answer without ever clicking a link. Generative Engine Optimization is how your brand earns a place inside those AI-generated answers, not just in the traditional blue links beneath them.",
   specialisms: ["GEO Strategy and Consulting", "AI Visibility Audit", "AI Content Optimization", "Structured Data Implementation", "AI Citation Optimization", "Topical Authority Development"],
@@ -1202,8 +1202,8 @@ export const SVC_GEO_DEFAULTS = {
 };
 
 export const SVC_SEO_DEFAULTS = {
-  num: "07", accent: "#06b6d4",
-  badge: "Service 07 — Search Engine Optimisation",
+  num: "02", accent: "#06b6d4",
+  badge: "Service 02 — Search Engine Optimisation",
   headline: "Rankings that don't produce leads aren't a strategy — they're a vanity metric.",
   body: "As a performance-driven SEO company, UnexusAI builds SEO services around one outcome: qualified organic traffic that turns into business, not just movement on a rank tracker.",
   specialisms: ["SEO Audit", "Keyword Research and Strategy", "Technical SEO", "Local SEO", "Content Optimization", "Link Building"],
@@ -1294,15 +1294,109 @@ export const SVC_SEO_DEFAULTS = {
   closing: "Book a free SEO consultation to uncover growth opportunities on your website. We'll run an SEO audit, benchmark you against competitors, and outline a customized, data-driven strategy to improve search visibility, attract qualified traffic, and generate sustainable long-term business growth.",
 };
 
+export const SVC_SEM_DEFAULTS = {
+  num: "03", accent: "#f97316",
+  badge: "Service 03 — Search Engine Marketing",
+  headline: "Show up the moment someone's ready to buy — at the top of the results, on demand.",
+  body: "Search Engine Marketing puts your business in front of high-intent searchers through paid search, shopping, and remarketing — traffic you can switch on today and measure to the dirham. We run Google Ads campaigns built around one thing: profitable, trackable leads, not clicks that look busy in a dashboard.",
+  specialisms: ["Google Ads", "Paid Search (PPC)", "Shopping Ads", "Display & Remarketing", "Landing Page CRO", "Conversion Tracking"],
+  primaryCtaLabel: "Get a free audit", primaryCtaHref: "#contact",
+  secondaryCtaLabel: "Book a 30-min call →", secondaryCtaHref: "/book",
+  heroNote: "SEM is the fastest channel to switch on, but it's rented attention — the leads stop the day the budget does. We're upfront about when paid search is the right tool (you need leads now, or want to test demand quickly) versus when SEO or GEO is the better long-term investment. Most businesses need a blend, and we'll tell you the split that fits your goals.",
+  ...EMPTY_COMPARISON,
+  outcomes: [],
+  audienceTitle: "",
+  audienceIntro: "",
+  audience: [],
+  includedTitle: "Our Search Engine Marketing Services",
+  includedIntro: "Whether you need a single Google Ads account rebuilt or a full paid-search program across search, shopping, and remarketing, we scope campaigns around your cost-per-lead target and the budget you're comfortable spending — not a percentage of spend that rewards us for spending more of your money.",
+  subServices: [
+    { title: "Google Ads Management", desc: "Full setup and ongoing management of search, shopping, and display campaigns." },
+    { title: "Keyword & Search-Term Strategy", desc: "Targeting the commercial-intent searches that convert, and cutting the wasted spend that doesn't." },
+    { title: "Ad Copywriting & Testing", desc: "Writing and continuously testing ads that earn the click from the right searcher." },
+    { title: "Landing Page & Conversion Optimization", desc: "Making sure the traffic you pay for actually converts once it lands." },
+    { title: "Shopping & E-commerce Ads", desc: "Product feed setup and Shopping campaigns for online stores." },
+    { title: "Remarketing & Display", desc: "Bringing back visitors who didn't convert the first time." },
+    { title: "Conversion Tracking & Attribution", desc: "Proper tracking so every dirham of spend is tied to a lead or sale." },
+    { title: "Budget & Bid Management", desc: "Allocating spend to what's working and pulling it from what isn't." },
+    { title: "Competitor & Auction Analysis", desc: "Understanding who you're bidding against and where the gaps are." },
+    { title: "Performance Reporting", desc: "Clear reporting on cost per lead, ROAS, and what we're changing next." },
+  ],
+  approachTitle: "Our Search Engine Marketing Process",
+  approachIntro: "Paid search rewards discipline — tight targeting, honest tracking, and constant iteration beat a big budget spent carelessly. Our process is built to get you to a profitable cost per lead as quickly as the data allows, then scale what works.",
+  approach: [
+    { title: "Account & goal audit", desc: "Reviewing your current spend, tracking, and what a lead is actually worth to you." },
+    { title: "Keyword & competitor research", desc: "Mapping the searches worth bidding on and the ones to avoid." },
+    { title: "Campaign structure & setup", desc: "Building tightly themed campaigns and ad groups for control and quality score." },
+    { title: "Tracking implementation", desc: "Setting up conversion tracking and attribution before spending a dirham." },
+    { title: "Launch & early optimization", desc: "Going live on a controlled budget and cutting waste fast." },
+    { title: "Testing & scaling", desc: "Testing ads, landing pages, and bids, then scaling what's profitable." },
+    { title: "Reporting & review", desc: "Monthly reporting on cost per lead and ROAS, with clear next steps." },
+    { title: "Ongoing management", desc: "Continuous optimization as auctions, competitors, and seasonality shift." },
+  ],
+  benefitsTitle: "Benefits of Search Engine Marketing",
+  benefitsIntro: "Unlike organic channels that build over months, paid search delivers qualified traffic the day it goes live — and every dirham is measurable. Used well, it's the fastest way to turn budget into booked leads. SEM delivers:",
+  benefits: [
+    "Immediate visibility at the top of search results",
+    "Traffic you can switch on, scale, or pause on demand",
+    "Leads from searchers with clear buying intent",
+    "Full, dirham-level measurement of spend and return",
+    "Fast testing of offers, messaging, and demand",
+    "Precise targeting by keyword, location, and device",
+    "Remarketing to visitors who didn't convert",
+    "A predictable cost per lead you can plan around",
+  ],
+  useCasesTitle: "Industries We Run Paid Search For",
+  useCasesIntro: "Paid search works across almost any business with commercial-intent demand — the strategy just changes by how customers search and what a lead is worth. Common sectors we manage campaigns for:",
+  useCases: [
+    "Real Estate",
+    "Healthcare & Clinics",
+    "E-commerce",
+    "Home Services",
+    "Professional Services",
+    "Education",
+    "Hospitality & F&B",
+    "B2B & SaaS",
+    "Local Businesses",
+    "Startups",
+  ],
+  whyTitle: "Why Choose UnexusAI for SEM?",
+  whyIntro: "Businesses comparing a Google Ads agency near me usually want the same thing: someone accountable for cost per lead, not just clicks and impressions. Ask any provider how they define a successful month — if the answer is about spend or traffic rather than leads and return, keep looking.",
+  whyCards: [],
+  whyUs: [
+    "Google Ads specialists focused on cost per lead, not vanity clicks",
+    "Proper conversion tracking on every account before spend starts",
+    "Transparent reporting tied to leads and ROAS",
+    "No long lock-in contracts or spend-based markups that reward waste",
+    "Landing page and CRO expertise under the same roof",
+    "Paid search that connects to your SEO, GEO, and website strategy",
+    "Continuous testing and optimization, not set-and-forget",
+    "A consistently ROI-focused approach to every dirham",
+  ],
+  faqIntro: "",
+  faqs: [
+    { q: "How is SEM different from SEO?", a: "SEO earns unpaid rankings over time; SEM buys visibility at the top of the results instantly through paid ads. SEO compounds and lowers cost per lead long-term; SEM delivers leads immediately and can be scaled or paused on demand. Most businesses benefit from running both." },
+    { q: "How much should I budget for Google Ads?", a: "It depends on your industry, competition, and cost per lead, but we help you start with a controlled test budget, prove a profitable cost per lead, and scale from there — rather than committing large spend before the data justifies it." },
+    { q: "How quickly will I see results?", a: "Paid search can start driving clicks and leads within days of launch. The first few weeks are spent optimizing toward a profitable cost per lead, with performance typically stabilizing over the first one to two months." },
+    { q: "Do you manage the ad spend or do we pay Google directly?", a: "You pay Google directly for the ad spend and retain full ownership of the account. We manage the strategy, setup, and optimization — so the account, data, and history always stay yours." },
+    { q: "What's a good cost per lead or ROAS?", a: "It varies widely by industry and margin, which is why we start by working out what a lead or sale is actually worth to you, then optimize toward a target that's profitable for your business rather than a generic benchmark." },
+    { q: "Can you run ads for a local business?", a: "Yes. Local campaigns with tight geographic targeting, call extensions, and location-specific landing pages are one of the highest-ROI uses of paid search for service businesses." },
+    { q: "Do you also handle the landing pages?", a: "Yes. Because we build websites too, we can create or optimize the landing pages your ads point to — which is often where the biggest gains in conversion rate come from." },
+    { q: "Will you lock me into a long contract?", a: "No. We work on transparent, rolling terms and don't take a percentage of ad spend, so our incentive is a better cost per lead — not persuading you to spend more." },
+  ],
+  closing: "Book a free SEM consultation and we'll audit your account (or set one up), map the highest-intent searches worth bidding on, and outline a paid-search plan built around a profitable, trackable cost per lead.",
+};
+
 export const SERVICES_CARDS_DEFAULTS = {
   items: [
     { title: "Digital Marketing", desc: "SEO, paid ads, and email — run as one joined-up system, not three separate jobs." },
+    { title: "Search Engine Optimisation", desc: "Technical SEO, content, and authority building that grows rankings and revenue — not vanity traffic." },
+    { title: "Search Engine Marketing", desc: "Google Ads and paid search that put you at the top of results — and turn clicks into tracked, profitable leads." },
+    { title: "Generative Engine Optimisation", desc: "Get your business recommended by ChatGPT, Perplexity, and Gemini — not just found on Google." },
     { title: "Website Development", desc: "Fast, conversion-focused websites built to turn visitors into leads — not just look good." },
     { title: "AI Automation", desc: "We find the repetitive work eating your team's week and build AI that takes it off their plate — permanently." },
     { title: "AI Training", desc: "Practical, hands-on sessions so your team actually uses AI tools — not just knows they exist." },
     { title: "Market Research", desc: "Know exactly who you're talking to, what they want, and how to reach them — before you spend a penny on marketing." },
-    { title: "Generative Engine Optimisation", desc: "Get your business recommended by ChatGPT, Perplexity, and Gemini — not just found on Google." },
-    { title: "Search Engine Optimisation", desc: "Technical SEO, content, and authority building that grows rankings and revenue — not vanity traffic." },
   ],
 };
 
@@ -1336,6 +1430,7 @@ SECTIONS.push(
   serviceSection("services.market-research", "Market Research", SVC_MARKET_RESEARCH_DEFAULTS),
   serviceSection("services.geo", "GEO", SVC_GEO_DEFAULTS),
   serviceSection("services.seo", "SEO", SVC_SEO_DEFAULTS),
+  serviceSection("services.sem", "SEM", SVC_SEM_DEFAULTS),
   {
     key: "services.cards", label: "Service cards (name + info)", group: "Services",
     fields: [

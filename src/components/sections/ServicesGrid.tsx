@@ -6,12 +6,13 @@ import RevealText3D from "@/components/ui/RevealText3D";
 
 const SERVICE_IMG: Record<string, string> = {
   "Digital Marketing": "/services/digital-marketing.png",
+  "SEO — Search Engine Optimisation": "/services/seo.png",
+  "SEM — Search Engine Marketing": "/services/sem.png",
+  "GEO — Generative Engine Optimization": "/services/geo.png",
   "Website Development": "/services/website-development.png",
   "AI Automation": "/services/ai-automation.png",
   "AI Training": "/services/ai-training.png",
   "Market Research": "/services/market-research.png",
-  "GEO — Generative Engine Optimization": "/services/geo.png",
-  "SEO — Search Engine Optimisation": "/services/seo.png",
 };
 
 interface Props {
@@ -49,11 +50,16 @@ export default function ServicesGrid({
           </div>
         </div>
 
-        {/* Cards — logo on top, name + info below */}
+        {/* Cards — logo on top, name + info below.
+            CMS card overrides are matched to each service by (card) title,
+            so the grid stays correct regardless of card order. */}
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((service, i) => {
-            const name = cards?.[i]?.title || service.cardTitle || service.title;
-            const desc = cards?.[i]?.desc || service.desc;
+            const override =
+              cards?.find((c) => c.title === (service.cardTitle ?? service.title)) ??
+              cards?.find((c) => c.title === service.title);
+            const name = override?.title || service.cardTitle || service.title;
+            const desc = override?.desc || service.desc;
             return (
               <ScrollReveal key={service.num} delay={(i % 3) * 0.08} direction="up">
                 <TiltCard intensity={5} scale={1.015} className="h-full">

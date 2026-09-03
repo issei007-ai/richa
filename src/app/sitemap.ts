@@ -7,12 +7,13 @@ const SITE_URL = "https://www.unexusai.com";
 
 const SERVICE_SLUGS = [
   "digital-marketing",
+  "seo",
+  "sem",
+  "geo",
   "website-development",
   "ai-automation",
   "ai-training",
   "market-research",
-  "geo",
-  "seo",
 ];
 
 const STATIC_ROUTES: { path: string; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"]; priority: number }[] = [

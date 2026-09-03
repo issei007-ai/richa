@@ -31,17 +31,18 @@ export const CHAT_FLOW: ChatFlow = {
   // ── Services ───────────────────────────────────────────────────────────
   services: {
     bot: [
-      "Seven services, all run by one team — so they connect instead of fighting each other.",
+      "Eight services, all run by one team — so they connect instead of fighting each other.",
       "Which one are you curious about?",
     ],
     options: [
       { label: "Digital Marketing", next: "svc_digital" },
+      { label: "SEO", next: "svc_seo" },
+      { label: "SEM", next: "svc_sem" },
+      { label: "GEO", next: "geo" },
       { label: "Website Development", next: "svc_web" },
       { label: "AI Automation", next: "svc_auto" },
       { label: "AI Training", next: "svc_train" },
       { label: "Market Research", next: "svc_research" },
-      { label: "SEO", next: "svc_seo" },
-      { label: "GEO", next: "geo" },
       { label: "← Back", next: START },
     ],
   },
@@ -109,6 +110,18 @@ export const CHAT_FLOW: ChatFlow = {
     ],
     options: [
       { label: "Yes — get a free SEO audit", next: "ask_name", interest: "SEO" },
+      { label: "← Other services", next: "services" },
+    ],
+  },
+
+  svc_sem: {
+    bot: [
+      "Google Ads and paid search — top-of-results visibility you can switch on today, measured to the dirham.",
+      "We run it for cost per lead, not clicks, with proper conversion tracking on every account.",
+      "Want Richa to audit your ad account, or set one up?",
+    ],
+    options: [
+      { label: "Yes — get a free audit", next: "ask_name", interest: "SEM" },
       { label: "← Other services", next: "services" },
     ],
   },
