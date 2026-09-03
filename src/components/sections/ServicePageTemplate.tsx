@@ -57,8 +57,16 @@ export interface ServiceTemplateProps {
   subServices: SubService[];
   approach?: Step[];
   approachTitle?: string;
+  approachIntro?: string;
+  benefits?: string[];
+  benefitsTitle?: string;
+  benefitsIntro?: string;
+  useCases?: string[];
+  useCasesTitle?: string;
+  useCasesIntro?: string;
   whyUs?: string[];
   whyTitle?: string;
+  whyIntro?: string;
   whyCards?: { title: string; desc: string }[];
   faqs: { q: string; a: string }[];
   faqIntro?: string;
@@ -87,8 +95,16 @@ export default function ServicePageTemplate({
   subServices,
   approach = PROCESS_STEPS.map((s) => ({ title: s.title, desc: s.desc })),
   approachTitle = "How a project usually goes",
+  approachIntro,
+  benefits,
+  benefitsTitle = "The benefits",
+  benefitsIntro,
+  useCases,
+  useCasesTitle = "Where it applies",
+  useCasesIntro,
   whyUs = WHY_US.map((w) => w.title),
   whyTitle = "Why people choose us for this",
+  whyIntro,
   whyCards,
   faqs,
   faqIntro,
@@ -277,11 +293,12 @@ export default function ServicePageTemplate({
         {/* Approach */}
         <section className="section">
           <div className="container">
-            <div className="text-center mb-14 max-w-2xl mx-auto">
+            <div className="text-center mb-14 max-w-3xl mx-auto">
               <span className="badge badge-dark mb-5 inline-flex">How it works</span>
               <h2 className="text-h2">
                 <RevealText3D text={approachTitle} splitBy="word" />
               </h2>
+              {approachIntro && <p className="text-lead mt-4" style={{ color: "var(--color-brand-300)" }}>{approachIntro}</p>}
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
               {approach.map((step, i) => (
@@ -305,6 +322,62 @@ export default function ServicePageTemplate({
             </div>
           </div>
         </section>
+
+        {/* Benefits */}
+        {benefits && benefits.length > 0 && (
+          <section className="section section-alt relative overflow-hidden">
+            <div className="absolute inset-0 bg-dots" style={{ opacity: 0.2 }} />
+            <div className="container relative z-10">
+              <div className="mb-12 max-w-2xl">
+                <span className="badge badge-accent mb-5 inline-flex">The payoff</span>
+                <h2 className="text-h2 mb-4">
+                  <RevealText3D text={benefitsTitle} splitBy="word" />
+                </h2>
+                {benefitsIntro && <p className="text-lead" style={{ color: "var(--color-brand-300)" }}>{benefitsIntro}</p>}
+              </div>
+              <div className="grid sm:grid-cols-2 gap-x-8 gap-y-4">
+                {benefits.map((b, i) => (
+                  <ScrollReveal key={b} delay={(i % 2) * 0.06}>
+                    <div className="flex items-start gap-3">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={accent} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, marginTop: 2 }}>
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                      <span className="text-white" style={{ fontWeight: 500 }}>{b}</span>
+                    </div>
+                  </ScrollReveal>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Use cases */}
+        {useCases && useCases.length > 0 && (
+          <section className="section">
+            <div className="container">
+              <div className="mb-12 max-w-2xl">
+                <span className="badge badge-dark mb-5 inline-flex">Where it fits</span>
+                <h2 className="text-h2 mb-4">
+                  <RevealText3D text={useCasesTitle} splitBy="word" />
+                </h2>
+                {useCasesIntro && <p className="text-lead" style={{ color: "var(--color-brand-300)" }}>{useCasesIntro}</p>}
+              </div>
+              <div className="flex flex-wrap gap-3">
+                {useCases.map((u, i) => (
+                  <ScrollReveal key={u} delay={(i % 5) * 0.05}>
+                    <span
+                      className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm"
+                      style={{ background: "var(--color-panel)", border: `1px solid ${accent}44`, color: "var(--color-brand-100)" }}
+                    >
+                      <span style={{ width: 7, height: 7, borderRadius: "50%", background: accent, flexShrink: 0 }} />
+                      {u}
+                    </span>
+                  </ScrollReveal>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Why us */}
         <section className="section section-alt">
@@ -340,7 +413,7 @@ export default function ServicePageTemplate({
                   <h2 className="text-h2 mb-4">
                     <RevealText3D text={whyTitle} splitBy="word" />
                   </h2>
-                  <p className="text-lead">We get up to speed quickly, we&apos;re straightforward about what&apos;s working and what isn&apos;t, and we care more about your results than our own report.</p>
+                  <p className="text-lead">{whyIntro || "We get up to speed quickly, we're straightforward about what's working and what isn't, and we care more about your results than our own report."}</p>
                 </div>
                 <div className="space-y-4">
                   {whyUs.map((point, i) => (
