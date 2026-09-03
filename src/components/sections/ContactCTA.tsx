@@ -10,6 +10,8 @@ interface Props {
   heading?: string;
   body?: string;
   imageSeed?: string;
+  /** Pre-selects the "What do you need?" dropdown to this service. */
+  defaultNeed?: string;
 }
 
 /**
@@ -20,7 +22,14 @@ interface Props {
 export default function ContactCTA({
   heading = "Got a project in mind?",
   body = "Tell us a bit about where you are and where you'd like to get to. We'll come back with specific ideas, not a generic pitch.",
+  defaultNeed,
 }: Props) {
+  // Match the current service to a dropdown option — exact, or by the code
+  // prefix before " — " (so "GEO — …isation" still matches "GEO — …ization").
+  const needKey = (s: string) => s.split(" — ")[0].trim();
+  const selectedNeed = defaultNeed
+    ? NEEDS.find((n) => n === defaultNeed || needKey(n) === needKey(defaultNeed))
+    : undefined;
   return (
     <section
       id="contact"
@@ -72,7 +81,7 @@ export default function ContactCTA({
               </div>
               <div>
                 <label className="form-label" htmlFor="cta-need">What do you need?</label>
-                <select className="form-select" name="need" id="cta-need">
+                <select className="form-select" name="need" id="cta-need" defaultValue={selectedNeed}>
                   {NEEDS.map((opt) => <option key={opt}>{opt}</option>)}
                 </select>
               </div>
